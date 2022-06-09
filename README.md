@@ -30,6 +30,7 @@ Project scripts are based in the fallowing languages/tools :
 ## Install with docker-compose
 
 ```sh
+git clone https://github.com/TheToto318/IoT_stack.git
 docker compose -p "SAE 23" up -d
 ```
 
