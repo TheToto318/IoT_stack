@@ -21,9 +21,9 @@
 Project scripts are based in the fallowing languages/tools : 
 - Dynamic website : HTML/PHP/JS
 - Metrics generator script : Bash
-- MQTT metrics parser : PHP and NodeRed
+- MQTT metric parser : PHP and NodeRed
 - Databases :
-  - NodeRed : InfluDB 1.8
+  - NodeRed : InfluxDB 1.8
   - Dynamic website : MariaDB
 
 This project was made for an final assesement exam the 'SAE 23' of the BUT Réseaux et Télécoms by three students of the Blagnac college.
