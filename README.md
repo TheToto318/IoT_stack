@@ -80,17 +80,44 @@ docker logs -f <container_name>
 eg: docker logs -f logs db
 ```
 
+## Grafana dashboard
+
+![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
+
+### Specs 
+Adaptative dashboard including : 
+- New panel for each buildings
+- Filter by :
+  - Sensors type
+  - Building
+  - Floor
+  - Room
+- Direct, Min, Max and Average values of all sensors type.
+- Graphs for all sensors type. 
+
+## Flow NodeRED
+
+![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
+
+### Specs 
+
+
+## phpMyAdmin dashboard ( sae 23 database )
+
+![phpmyadmin](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/phpmyadmin.png)
+
+
 ## Author
 
-👤 **Thomas Roux**
+👤 **Thomas Roux** (Backend developper)
 
 * Github: [@TheToto318](https://github.com/TheToto318)
 
-👤 **Clement Roques**
+👤 **Clement Roques** (Frontend developper)
 
 * Github: [@ClementRqs](https://github.com/ClementRqs)
 
-👤 **Mattieu Naissant**
+👤 **Mattieu Naissant** (Frontend developper)
 
 * Github: [@Snip31](https://github.com/Snip31)
 
