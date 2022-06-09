@@ -100,11 +100,32 @@ Adaptative dashboard including :
 ![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
 
 ### Specs 
-
+- Listen to all topics (iut/#)
+- Parsing :
+  - Sensor type
+  - Building
+  - Floor
+  - Room
+- Add unit to value.
+- Insert value into the matching measurement table
 
 ## phpMyAdmin dashboard ( sae 23 database )
 
 ![phpmyadmin](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/phpmyadmin.png)
+
+### sae23 database table specs 
+- 'Administration' : Admin user and password (MD5 encrypted).
+- 'Batiment' : Building name, login and password for the building manager.
+- 'capteur' : Sensors type, building, floor, room, MQTT topic
+- 'mesure' : measure date and time
+- 'valeur' : value returned by sensors
+
+Tables are linked by the fallowing foreign_key :
+- 'valeur': id_mesure and id_cateur with 'id' column of table 'mesure' and 'capteur'.
+- 'capteur' : 'batiment' column with the 'id' column of the 'batiment' table.
+
+![conceptor_view](https://github.com/TheToto318/IoT_stack/blob/main/mariadb/Conceptor_view_sae23_db.png)
+
 
 
 ## Author
