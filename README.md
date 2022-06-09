@@ -16,7 +16,18 @@
 
 ### 🏠 [Homepage](https://github.com/TheToto318/IoT_stack)
 
-## Install
+## Project details 
+
+Project scripts are based in the fallowing languages/tools : 
+- Dynamic website : HTML/PHP/JS
+- Metrics generator script : Bash
+- MQTT metrics parser : PHP and NodeRed
+- Databases :
+  - NodeRed : InfluDB 1.8
+  - Dynamic website : MariaDB
+
+
+## Install with docker-compose
 
 ```sh
 docker compose -p "SAE 23" up -d
