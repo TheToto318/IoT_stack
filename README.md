@@ -100,7 +100,14 @@ Adaptative dashboard including :
 ![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
 
 ### Specs 
-
+- Listen to all topics (iut/#)
+- Parsing :
+  - Sensor type
+  - Building
+  - Floor
+  - Room
+- Add unit to value.
+- Insert value into the matching measurement table
 
 ## phpMyAdmin dashboard ( sae 23 database )
 
