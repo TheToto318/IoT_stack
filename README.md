@@ -121,7 +121,7 @@ Adaptative dashboard including :
 - 'valeur' : value returned by sensors
 
 Tables are linked by the fallowing foreign_key :
-- 'valeur': id_mesure and id_cateur with 'id' column of table 'mesure' and 'capteur'.
+- 'valeur': id_mesure and id_capteur with 'id' column of table 'mesure' and 'capteur'.
 - 'capteur' : 'batiment' column with the 'id' column of the 'batiment' table.
 
 ![conceptor_view](https://github.com/TheToto318/IoT_stack/blob/main/mariadb/Conceptor_view_sae23_db.png)
