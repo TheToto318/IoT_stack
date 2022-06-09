@@ -26,6 +26,14 @@ Project scripts are based in the fallowing languages/tools :
   - NodeRed : InfluDB 1.8
   - Dynamic website : MariaDB
 
+This project was made for an final assesement exam the 'SAE 23' of the BUT Réseaux et Télécoms by three students of the Blagnac college.
+
+
+## Workflow
+
+![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Workflow%20IoT_Stack.drawio.png)
+
+
 
 ## Install with docker-compose
 
@@ -34,11 +42,28 @@ git clone https://github.com/TheToto318/IoT_stack.git
 docker compose -p "SAE 23" up -d
 ```
 
-## Usage
+## Default credentials
+- Grafana :
+  - User : sae23
+  - Password : grafana23
+- InfluxDB :
+  - Hostname : influxdb
+  - Database : capteurs
+  - User : grafana
+  - Password : grafana23
+- MariaDB :
+  - Hostname : db
+  - Database : sae23
+  - User : sae23
+  - Password : sae23pass
 
-```sh
-npm run start
-```
+## Usage
+Services are accessible by the following ports :
+- Grafana : 3000 (TCP)
+- NodeRed : 1880 (TCP)
+- PHPMyAdmin : 1140 (TCP)
+- Apache : 4443 (TCP)
+
 
 ## Run tests
 
@@ -51,6 +76,14 @@ npm run test
 👤 **Thomas Roux**
 
 * Github: [@TheToto318](https://github.com/TheToto318)
+
+👤 **Clement Roques**
+
+* Github: [@ClementRqs](https://github.com/ClementRqs)
+
+👤 **Mattieu Naissant**
+
+* Github: [@Snip31](https://github.com/Snip31)
 
 ## 🤝 Contributing
 
