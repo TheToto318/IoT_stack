@@ -59,10 +59,10 @@ docker compose -p "SAE 23" up -d
 
 ## Usage
 Services are accessible by the following ports :
-- Grafana : 3000
-- NodeRed : 1880
-- PHPMyAdmin : 1140
-- Apache : 4443
+- Grafana : 3000 (TCP)
+- NodeRed : 1880 (TCP)
+- PHPMyAdmin : 1140 (TCP)
+- Apache : 4443 (TCP)
 
 
 ## Run tests
