@@ -84,11 +84,22 @@ eg: docker logs -f logs db
 
 ![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
 
+### Specs 
+Adaptative dashboard
+- Add new panel for new buildings
+- Filter by :
+  - Sensors type.
+  - Building.
+  - Floor.
+  - Room.
+- Direct, Min, Max and Average values of all sensors type.
+- Graphs for all sensors type. 
+
 ## Flow NodeRED
 
 ![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
 
-## phpMyAdmin dashboard ( sae 23 database)
+## phpMyAdmin dashboard ( sae 23 database )
 
 ![phpmyadmin](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/phpmyadmin.png)
 
