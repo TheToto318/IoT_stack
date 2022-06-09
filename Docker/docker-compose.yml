@@ -1,0 +1,54 @@
+volumes:
+  db_data:
+  influx_data:
+
+services:
+  node-red:
+    image: totorx/sae23:nodered
+    ports: 
+      - 1880:1880 
+    container_name: 'nodered_sae23'
+  
+  db:
+    image: totorx/sae23:mariadb
+    restart: always
+    container_name: 'db_sae23'
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 'yes'
+      MARIADB_USER: 'sae23'
+      MARIADB_PASSWORD: 'sae23pass'
+      MARIADB_DATABASE: 'sae23'
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 1104:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+
+  influxdb:
+    image: totorx/sae23:influxdb
+    container_name: 'influx_sae23'
+    restart: always
+    volumes:
+      - influx_data:/var/lib/influxdb 
+  
+  grafana:
+    image: totorx/sae23:grafana
+    container_name: 'grafana_sae23'
+    restart: always
+    ports:
+      - 3000:3000
+
+  mqtt:
+    image: totorx/sae23:mosquitto_broker
+    container_name: 'mosquito_broker_sae23'
+    restart: always
+
+  cron:
+    image: totorx/sae23:cron
+    container_name: 'cron_sae23'

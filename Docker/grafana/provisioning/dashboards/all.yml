@@ -1,0 +1,6 @@
+- name: 'SAE 23'
+  org_id: 1
+  folder: ''
+  type: 'file'
+  options:
+    folder: '/var/lib/grafana/dashboards'

@@ -1,0 +1,3 @@
+create database capteurs;
+create user grafana with password 'grafana23' with all privileges;
+GRANT ALL ON capteurs TO grafana;

@@ -1,0 +1,12 @@
+datasources:
+- name: 'InfluxDB'
+  type: 'influxdb'
+  access: 'proxy'
+  org_id: 1
+  url: 'http://influxdb:8086'
+  is_default: true
+  version: 1
+  editable: false
+  database: 'capteurs'
+  user: 'grafana'
+  password: 'grafana23'

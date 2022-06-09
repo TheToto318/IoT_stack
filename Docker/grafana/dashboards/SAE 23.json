@@ -1,0 +1,1273 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "iteration": 1654759445365,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 9,
+      "panels": [],
+      "repeat": "batiment",
+      "title": "$batiment",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "$max": {
+                  "index": 0,
+                  "text": "Valeur maximale atteinte"
+                },
+                "$min": {
+                  "index": 1,
+                  "text": "Valeur minimale atteinte"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ppm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 4,
+      "maxPerRow": 12,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "8.5.3",
+      "repeat": "measurements",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "$tag_salle",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "batiment"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "etage"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "salle"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM /^$measurements$/ WHERE (\"salle\" =~ /^$salles$/ AND \"etage\" =~ /^$etages$/ AND \"batiment\" =~ /^$batiment$/) AND $timeFilter GROUP BY time($__interval), \"batiment\", \"etage\", \"salle\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "salle",
+              "operator": "=~",
+              "value": "/^$salles$/"
+            },
+            {
+              "condition": "AND",
+              "key": "etage",
+              "operator": "=~",
+              "value": "/^$etages$/"
+            },
+            {
+              "condition": "AND",
+              "key": "batiment",
+              "operator": "=~",
+              "value": "/^$batiment$/"
+            }
+          ]
+        },
+        {
+          "alias": "unit",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
+          "hide": false,
+          "query": "SHOW TAG VALUES from /^$measurements$/ with key=unit",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "logs"
+        },
+        {
+          "alias": "min",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
+          "groupBy": [],
+          "hide": true,
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT min(\"value\") FROM /^$measurements$/ WHERE $timeFilter GROUP BY time($__interval)",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "min"
+              }
+            ]
+          ],
+          "tags": []
+        },
+        {
+          "alias": "max",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
+          "groupBy": [],
+          "hide": true,
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "max"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Direct $measurements $salles",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "min",
+                "handlerKey": "min",
+                "reducerId": "min"
+              },
+              {
+                "fieldName": "max",
+                "handlerKey": "max",
+                "reducerId": "max"
+              },
+              {
+                "fieldName": "unit",
+                "handlerKey": "unit"
+              },
+              {
+                "fieldName": "value",
+                "handlerKey": "unit"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 17,
+      "maxPerRow": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.3",
+      "repeat": "measurements",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT mean(\"value\") FROM /^$measurements$/ WHERE (\"etage\" =~ /^$etages$/ AND \"batiment\" =~ /^$batiment$/) AND $timeFilter GROUP BY time($__interval)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "etage",
+              "operator": "=~",
+              "value": "/^$etages$/"
+            },
+            {
+              "condition": "AND",
+              "key": "batiment",
+              "operator": "=~",
+              "value": "/^$batiment$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "hide": false,
+          "query": "SHOW TAG VALUES from /^$measurements$/ with key=unit",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "logs"
+        }
+      ],
+      "title": "Moyenne $measurements etage : $etages",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "value",
+                "handlerKey": "unit"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 15
+      },
+      "id": 12,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "8.5.3",
+      "repeat": "measurements",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "$tag_etage, $tag_salle",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "batiment"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "etage"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "salle"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM /^$measurements$/ WHERE (\"batiment\" =~ /^$batiment$/ AND \"etage\" =~ /^$etages$/ AND \"salle\" =~ /^$salles$/) AND $timeFilter GROUP BY time($__interval), \"batiment\", \"etage\", \"salle\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "batiment",
+              "operator": "=~",
+              "value": "/^$batiment$/"
+            },
+            {
+              "condition": "AND",
+              "key": "etage",
+              "operator": "=~",
+              "value": "/^$etages$/"
+            },
+            {
+              "condition": "AND",
+              "key": "salle",
+              "operator": "=~",
+              "value": "/^$salles$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "hide": false,
+          "query": "SHOW TAG VALUES from /^$measurements$/ with key=unit",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "logs"
+        }
+      ],
+      "title": "Average $measurements $batiment",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byType",
+              "options": "number"
+            },
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "value",
+                "handlerKey": "unit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "configFromData",
+          "options": {}
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 100,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "etage1, E101"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 22
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "8.5.3",
+      "repeat": "measurements",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "$tag_etage, $tag_salle",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "batiment"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "etage"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "salle"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "hide": false,
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM /^$measurements$/ WHERE (\"batiment\" =~ /^$batiment$/ AND \"etage\" =~ /^$etages$/ AND \"salle\" =~ /^$salles$/) AND $timeFilter GROUP BY time($__interval), \"batiment\", \"etage\", \"salle\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "batiment",
+              "operator": "=~",
+              "value": "/^$batiment$/"
+            },
+            {
+              "condition": "AND",
+              "key": "etage",
+              "operator": "=~",
+              "value": "/^$etages$/"
+            },
+            {
+              "condition": "AND",
+              "key": "salle",
+              "operator": "=~",
+              "value": "/^$salles$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "hide": false,
+          "query": "SHOW TAG VALUES from /^$measurements$/ with key=unit",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "logs"
+        }
+      ],
+      "title": "$measurements $salles",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "value",
+                "handlerKey": "unit"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 10
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
+              },
+              {
+                "color": "#EF843C",
+                "value": 60
+              },
+              {
+                "color": "#E24D42",
+                "value": 70
+              },
+              {
+                "color": "#1F78C1",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 29
+      },
+      "id": 22,
+      "maxPerRow": 6,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "min"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "8.5.3",
+      "repeat": "measurements",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "$tag_etage, $tag_salle",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "batiment"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "etage"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "salle"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM /^$measurements$/ WHERE (\"batiment\" =~ /^$batiment$/ AND \"etage\" =~ /^$etages$/ AND \"salle\" =~ /^$salles$/) AND $timeFilter GROUP BY time($__interval), \"batiment\", \"etage\", \"salle\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "batiment",
+              "operator": "=~",
+              "value": "/^$batiment$/"
+            },
+            {
+              "condition": "AND",
+              "key": "etage",
+              "operator": "=~",
+              "value": "/^$etages$/"
+            },
+            {
+              "condition": "AND",
+              "key": "salle",
+              "operator": "=~",
+              "value": "/^$salles$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "hide": false,
+          "query": "SHOW TAG VALUES from /^$measurements$/ with key=unit",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "logs"
+        }
+      ],
+      "title": "Minimum $measurements $batiment",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byType",
+              "options": "number"
+            },
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "value",
+                "handlerKey": "unit"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 20
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 37
+      },
+      "id": 28,
+      "maxPerRow": 6,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "max"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "8.5.3",
+      "repeat": "measurements",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "alias": "$tag_etage, $tag_salle",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "batiment"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "etage"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "salle"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "/^$measurements$/",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT last(\"value\") FROM /^$measurements$/ WHERE (\"batiment\" =~ /^$batiment$/ AND \"etage\" =~ /^$etages$/ AND \"salle\" =~ /^$salles$/) AND $timeFilter GROUP BY time($__interval), \"batiment\", \"etage\", \"salle\" fill(none)",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "value"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "batiment",
+              "operator": "=~",
+              "value": "/^$batiment$/"
+            },
+            {
+              "condition": "AND",
+              "key": "etage",
+              "operator": "=~",
+              "value": "/^$etages$/"
+            },
+            {
+              "condition": "AND",
+              "key": "salle",
+              "operator": "=~",
+              "value": "/^$salles$/"
+            }
+          ]
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "cLdAwtr7z"
+          },
+          "hide": false,
+          "query": "SHOW TAG VALUES from /^$measurements$/ with key=unit",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "logs"
+        }
+      ],
+      "title": "Maximum $measurements $batiment",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "applyTo": {
+              "id": "byType",
+              "options": "number"
+            },
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "value",
+                "handlerKey": "unit"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "bargauge"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P951FEA4DE68E13C5"
+        },
+        "definition": "SHOW TAG VALUES with key=salle",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "salles",
+        "options": [],
+        "query": "SHOW TAG VALUES with key=salle",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P951FEA4DE68E13C5"
+        },
+        "definition": "SHOW TAG VALUES with key=etage",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "etages",
+        "options": [],
+        "query": "SHOW TAG VALUES with key=etage",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P951FEA4DE68E13C5"
+        },
+        "definition": "SHOW TAG VALUES with key=batiment",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "batiment",
+        "options": [],
+        "query": "SHOW TAG VALUES with key=batiment",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P951FEA4DE68E13C5"
+        },
+        "definition": "show measurements",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "measurements",
+        "options": [],
+        "query": "show measurements",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "SAE 23",
+  "uid": "glZD9t9nk",
+  "version": 1,
+  "weekStart": ""
+}
