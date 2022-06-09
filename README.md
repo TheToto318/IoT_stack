@@ -124,7 +124,7 @@ Tables are linked by the fallowing foreign_key :
 - 'valeur': id_mesure and id_capteur with 'id' column of table 'mesure' and 'capteur'.
 - 'capteur' : 'batiment' column with the 'id' column of the 'batiment' table.
 
-![conceptor_view](https://github.com/TheToto318/IoT_stack/blob/main/mariadb/Conceptor_view_sae23_db.png)
+![conceptor_view](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Conceptor_view_sae23.png)
 
 
 
