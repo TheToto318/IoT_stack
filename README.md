@@ -77,6 +77,14 @@ npm run test
 
 * Github: [@TheToto318](https://github.com/TheToto318)
 
+👤 **Clement Roques**
+
+* Github: [@ClementRqs](https://github.com/ClementRqs)
+
+👤 **Mattieu Naissant**
+
+* Github: [@Snip31](https://github.com/Snip31)
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/TheToto318/IoT_stack/issues). You can also take a look at the [contributing guide](https://github.com/kefranabg/readme-md-generator/blob/master/CONTRIBUTING.md).
