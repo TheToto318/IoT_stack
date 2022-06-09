@@ -86,7 +86,7 @@ eg: docker logs -f logs db
 
 ### Specs 
 Adaptative dashboard including : 
-- New panel for new buildings
+- New panel for each buildings
 - Filter by :
   - Sensors type
   - Building
@@ -99,6 +99,9 @@ Adaptative dashboard including :
 
 ![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
 
+### Specs 
+
+
 ## phpMyAdmin dashboard ( sae 23 database )
 
 ![phpmyadmin](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/phpmyadmin.png)
@@ -106,15 +109,15 @@ Adaptative dashboard including :
 
 ## Author
 
-👤 **Thomas Roux**
+👤 **Thomas Roux** (Backend developper)
 
 * Github: [@TheToto318](https://github.com/TheToto318)
 
-👤 **Clement Roques**
+👤 **Clement Roques** (Frontend developper)
 
 * Github: [@ClementRqs](https://github.com/ClementRqs)
 
-👤 **Mattieu Naissant**
+👤 **Mattieu Naissant** (Frontend developper)
 
 * Github: [@Snip31](https://github.com/Snip31)
 
