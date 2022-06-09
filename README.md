@@ -31,7 +31,7 @@ This project was made for an final assesement exam the 'SAE 23' of the BUT Rése
 
 ## Workflow
 
-![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Workflow%20IoT_Stack.drawio.png)
+![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Diagramm/Workflow%20IoT_Stack.drawio.png)
 
 
 
