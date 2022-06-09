@@ -26,6 +26,11 @@ Project scripts are based in the fallowing languages/tools :
   - NodeRed : InfluDB 1.8
   - Dynamic website : MariaDB
 
+## Workflow
+
+![This is an image](https://github.com/TheToto318/IoT_stack/blob/main/Workflow%20IoT_Stack.drawio.png)
+
+
 
 ## Install with docker-compose
 
