@@ -65,10 +65,12 @@ Services are accessible by the following ports :
 - Apache : 4443 (TCP)
 
 
-## Run tests
+## Debugging
+Find the service name in the docker-compose.yml file and run :
 
 ```sh
-npm run test
+docker logs <service_name>
+eg: docker logs db
 ```
 
 ## Author
