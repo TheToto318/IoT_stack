@@ -47,22 +47,22 @@ docker compose -p "SAE 23" up -d
   - User : sae23
   - Password : grafana23
 - InfluxDB :
+  - Hostname : influxdb
   - Database : capteurs
   - User : grafana
   - Password : grafana23
 - MariaDB :
+  - Hostname : db
   - Database : sae23
   - User : sae23
   - Password : sae23pass
 
-## Install using classic docker cli
-
-```sh
-git clone https://github.com/TheToto318/IoT_stack.git
-
-```
-
 ## Usage
+Services are accessible by the following ports :
+- Grafana : 3000
+- NodeRed : 1880
+- PHPMyAdmin : 1140
+- Apache : 4443
 
 
 ## Run tests
