@@ -77,7 +77,7 @@ Or with the container name :
 
 ```sh
 docker logs -f <container_name>
-eg: docker -f logs db
+eg: docker logs -f logs db
 ```
 
 ## Author
