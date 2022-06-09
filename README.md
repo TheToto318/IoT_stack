@@ -85,13 +85,13 @@ eg: docker logs -f logs db
 ![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
 
 ### Specs 
-Adaptative dashboard
-- Add new panel for new buildings
+Adaptative dashboard including : 
+- New panel for new buildings
 - Filter by :
-  - Sensors type.
-  - Building.
-  - Floor.
-  - Room.
+  - Sensors type
+  - Building
+  - Floor
+  - Room
 - Direct, Min, Max and Average values of all sensors type.
 - Graphs for all sensors type. 
 
