@@ -1,0 +1,565 @@
+[
+    {
+        "id": "708b18fb7f73c5f8",
+        "type": "tab",
+        "label": "MQTT to InfluxDB SAE 23",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d56594aa8def6a0d",
+        "type": "change",
+        "z": "708b18fb7f73c5f8",
+        "name": "convert to number",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$number(payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 540,
+        "wires": [
+            [
+                "3a23a0126fc99705"
+            ]
+        ]
+    },
+    {
+        "id": "1233a0dbad372eb4",
+        "type": "mqtt in",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "topic": "iut/#",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "0710766e499d0bb9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "87ac77046bad43f2",
+                "d56594aa8def6a0d"
+            ]
+        ]
+    },
+    {
+        "id": "b936097a72b06e4d",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "87ac77046bad43f2",
+        "type": "function",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "func": "msg.batiment = msg.topic.split(\"/\")[1];\nmsg.etage = msg.topic.split(\"/\")[2];\nmsg.salle = msg.topic.split(\"/\")[3];\nmsg.type = msg.topic.split(\"/\")[4];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 460,
+        "wires": [
+            [
+                "b936097a72b06e4d",
+                "4ceddac950c6bf05",
+                "5c3bdfc279eff4b1",
+                "9aa870a9c0d0f415",
+                "d747f45b345dcfeb",
+                "887f576196a9b4c9",
+                "3a23a0126fc99705",
+                "133b2c6f955778db"
+            ]
+        ]
+    },
+    {
+        "id": "d747f45b345dcfeb",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "batiment",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9aa870a9c0d0f415",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "type",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "5c3bdfc279eff4b1",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "salle",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4ceddac950c6bf05",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "etage",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "887f576196a9b4c9",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "26acaaf06226d50f",
+        "type": "switch",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "property": "type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "co2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "luminosite",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 1290,
+        "y": 440,
+        "wires": [
+            [
+                "57257b7d37ed4821",
+                "7bcadc1d90c84849"
+            ],
+            [
+                "85c1172c3d551fc2",
+                "019c984613433a4f"
+            ],
+            [
+                "0b244224827b12fd",
+                "a76d98b25aa765b2"
+            ]
+        ]
+    },
+    {
+        "id": "3a23a0126fc99705",
+        "type": "function",
+        "z": "708b18fb7f73c5f8",
+        "name": "Fields and Tags",
+        "func": "\n\nmsg.payload = [{\n    value : `${msg.payload}i`\n},\n{\n    batiment: `${msg.batiment}`,\n    etage: `${msg.etage}`,\n    salle: `${msg.salle}`,\n    unit: `${msg.unit}`\n}];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 440,
+        "wires": [
+            [
+                "98d9d1848d848b57"
+            ]
+        ]
+    },
+    {
+        "id": "98d9d1848d848b57",
+        "type": "switch",
+        "z": "708b18fb7f73c5f8",
+        "name": "Check for undefined array (batiment)",
+        "property": "batiment",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1010,
+        "y": 580,
+        "wires": [
+            [
+                "36318a6f41570efb"
+            ]
+        ]
+    },
+    {
+        "id": "7bcadc1d90c84849",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "type",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "019c984613433a4f",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "type",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a76d98b25aa765b2",
+        "type": "debug",
+        "z": "708b18fb7f73c5f8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "type",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "133b2c6f955778db",
+        "type": "switch",
+        "z": "708b18fb7f73c5f8",
+        "name": "add unit",
+        "property": "type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "temperature",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "luminosite",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "co2",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "humidity",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 660,
+        "y": 260,
+        "wires": [
+            [
+                "c07b7c19202276b3"
+            ],
+            [
+                "ad821a0865da5d8a"
+            ],
+            [
+                "391d2418beb3a4df"
+            ],
+            [
+                "5981ec0ccd399924"
+            ]
+        ]
+    },
+    {
+        "id": "c07b7c19202276b3",
+        "type": "function",
+        "z": "708b18fb7f73c5f8",
+        "name": "temperature",
+        "func": "msg.unit = \"°C\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 240,
+        "wires": [
+            [
+                "3a23a0126fc99705"
+            ]
+        ]
+    },
+    {
+        "id": "ad821a0865da5d8a",
+        "type": "function",
+        "z": "708b18fb7f73c5f8",
+        "name": "luminosity",
+        "func": "msg.unit = \"lux\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 280,
+        "wires": [
+            [
+                "3a23a0126fc99705"
+            ]
+        ]
+    },
+    {
+        "id": "5981ec0ccd399924",
+        "type": "function",
+        "z": "708b18fb7f73c5f8",
+        "name": "humidity",
+        "func": "msg.unit = \"%\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 360,
+        "wires": [
+            [
+                "3a23a0126fc99705"
+            ]
+        ]
+    },
+    {
+        "id": "391d2418beb3a4df",
+        "type": "function",
+        "z": "708b18fb7f73c5f8",
+        "name": "co2",
+        "func": "msg.unit = \"ppm\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 320,
+        "wires": [
+            [
+                "3a23a0126fc99705"
+            ]
+        ]
+    },
+    {
+        "id": "36318a6f41570efb",
+        "type": "switch",
+        "z": "708b18fb7f73c5f8",
+        "name": "Check for undefined array (unit)",
+        "property": "unit",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1330,
+        "y": 580,
+        "wires": [
+            [
+                "26acaaf06226d50f"
+            ]
+        ]
+    },
+    {
+        "id": "57257b7d37ed4821",
+        "type": "influxdb out",
+        "z": "708b18fb7f73c5f8",
+        "influxdb": "20bf027ebd581358",
+        "name": "",
+        "measurement": "temperatures",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1570,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "85c1172c3d551fc2",
+        "type": "influxdb out",
+        "z": "708b18fb7f73c5f8",
+        "influxdb": "20bf027ebd581358",
+        "name": "",
+        "measurement": "co2",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1540,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "0b244224827b12fd",
+        "type": "influxdb out",
+        "z": "708b18fb7f73c5f8",
+        "influxdb": "20bf027ebd581358",
+        "name": "",
+        "measurement": "luminosite",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "organisation",
+        "bucket": "bucket",
+        "x": 1560,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "0710766e499d0bb9",
+        "type": "mqtt-broker",
+        "name": "local",
+        "broker": "mqtt",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "20bf027ebd581358",
+        "type": "influxdb",
+        "hostname": "influxdb",
+        "port": "8086",
+        "protocol": "http",
+        "database": "capteurs",
+        "name": "influx",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://localhost:8086",
+        "rejectUnauthorized": true
+    }
+]
