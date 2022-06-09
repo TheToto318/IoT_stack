@@ -124,7 +124,7 @@ Adaptative dashboard including :
 
 ### sae23 database table specs 
 - 'Administration' : Admin user and password (MD5 encrypted).
-- 'Batiment' : Building name, login and password for the building manager.
+- 'Batiment' : Building name, login and password for the building manager (MD5 encrypted).
 - 'capteur' : Sensors type, building, floor, room, MQTT topic
 - 'mesure' : measure date and time
 - 'valeur' : value returned by sensors
