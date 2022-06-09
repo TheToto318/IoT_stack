@@ -38,7 +38,7 @@ services:
       - influx_data:/var/lib/influxdb 
   
   grafana:
-    image: totorx/sae23:grafana
+    image: totorx/sae23:grafana_sae23
     container_name: 'grafana_sae23'
     restart: always
     ports:
