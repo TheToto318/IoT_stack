@@ -28,6 +28,15 @@ Project scripts are based in the fallowing languages/tools :
 
 This project was made for an final assesement exam the 'SAE 23' of the BUT Réseaux et Télécoms by four students of the Blagnac college.
 
+All the services are dockerized, images are pre-provisionned :
+- Grafana : Dashboard (set as default), data sources, administrator user (sae23) and password.
+- NodeRED : Flow
+- mariadb : 'sae23' database, 'sae23' user and password
+- influxdb : 'capteurs' database, 'grafana' user and password
+- apache : Dynamic website
+- mosquitto_broker : Mosquitto server and metric generator script.
+- cron : MQTT metric parser 
+
 
 ## Workflow
 
