@@ -4,7 +4,7 @@
   <a href="https://github.com/TheToto318/IoT_stack/blob/main/README.md" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
-  <a href="https://github.com/kefranabg/readme-md-generator/graphs/commit-activity" target="_blank">
+  <a href="https://github.com/TheToto318/IoT_stack/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE" target="_blank">
@@ -31,7 +31,7 @@ This project was made for an final assesement exam the 'SAE 23' of the BUT Rése
 
 ## Workflow
 
-![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Workflow%20IoT_Stack.drawio.png)
+![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Diagramm/Workflow%20IoT_Stack.drawio.png)
 
 
 
@@ -65,10 +65,19 @@ Services are accessible by the following ports :
 - Apache : 4443 (TCP)
 
 
-## Run tests
+## Debugging
+Find the service name in the docker-compose.yml file and run :
 
 ```sh
-npm run test
+docker-compose -f logs <service_name>
+eg: docker-compose -f logs db
+```
+
+Or with the container name :
+
+```sh
+docker logs -f <container_name>
+eg: docker logs -f logs db
 ```
 
 ## Author
