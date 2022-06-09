@@ -80,6 +80,11 @@ docker logs -f <container_name>
 eg: docker logs -f logs db
 ```
 
+## Grafana dashboard
+
+![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
+
+
 ## Author
 
 👤 **Thomas Roux**
