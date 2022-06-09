@@ -19,7 +19,7 @@
 ## Install
 
 ```sh
-docker compose -p &#34;IoT_Stack&#34; up -d
+docker compose -p "SAE 23" up -d
 ```
 
 ## Usage
