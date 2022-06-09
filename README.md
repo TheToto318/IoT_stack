@@ -69,8 +69,15 @@ Services are accessible by the following ports :
 Find the service name in the docker-compose.yml file and run :
 
 ```sh
-docker logs <service_name>
-eg: docker logs db
+docker-compose -f logs <service_name>
+eg: docker-compose -f logs db
+```
+
+Or with the container name :
+
+```sh
+docker logs -f <container_name>
+eg: docker -f logs db
 ```
 
 ## Author
