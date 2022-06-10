@@ -104,6 +104,10 @@ Adaptative dashboard including :
 - Direct, Min, Max and Average values of all sensors type.
 - Graphs for all sensors type. 
 
+## Dynamic website 
+
+Comming soon 
+
 ## Flow NodeRED
 
 ![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
