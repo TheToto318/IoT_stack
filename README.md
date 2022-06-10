@@ -40,7 +40,7 @@ All the services are dockerized, images are pre-provisionned :
 
 ## Workflow
 
-![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Diagramm/Workflow%20IoT_Stack.drawio.png)
+![Workflow](https://github.com/TheToto318/IoT_stack/blob/main/Diagram/Workflow%20IoT_Stack.drawio.png)
 
 
 
