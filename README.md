@@ -106,7 +106,7 @@ Adaptative dashboard including :
 
 ## Dynamic website 
 
-Comming soon 
+Coming soon 
 
 ## Flow NodeRED
 
