@@ -21,12 +21,21 @@
 Project scripts are based in the fallowing languages/tools : 
 - Dynamic website : HTML/PHP/JS
 - Metrics generator script : Bash
-- MQTT metrics parser : PHP and NodeRed
+- MQTT metric parser : PHP and NodeRed
 - Databases :
-  - NodeRed : InfluDB 1.8
+  - NodeRed : InfluxDB 1.8
   - Dynamic website : MariaDB
 
-This project was made for an final assesement exam the 'SAE 23' of the BUT Réseaux et Télécoms by three students of the Blagnac college.
+This project was made for an final assesement exam the 'SAE 23' of the BUT Réseaux et Télécoms by four students of the Blagnac college.
+
+All the services are dockerized, images are pre-provisionned :
+- Grafana : Dashboard (set as default), data sources, administrator user (sae23) and password.
+- NodeRED : Flow
+- mariadb : 'sae23' database, 'sae23' user and password
+- influxdb : 'capteurs' database, 'grafana' user and password
+- apache : Dynamic website
+- mosquitto_broker : Mosquitto server and metric generator script.
+- cron : MQTT metric parser 
 
 
 ## Workflow
@@ -39,7 +48,7 @@ This project was made for an final assesement exam the 'SAE 23' of the BUT Rése
 
 ```sh
 git clone https://github.com/TheToto318/IoT_stack.git
-docker compose -p "SAE 23" up -d
+docker compose -p "IoT_Stack" up -d
 ```
 
 ## Default credentials
@@ -95,6 +104,10 @@ Adaptative dashboard including :
 - Direct, Min, Max and Average values of all sensors type.
 - Graphs for all sensors type. 
 
+## Dynamic website 
+
+Coming soon 
+
 ## Flow NodeRED
 
 ![Flow NodeRED](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/NodeRED.png)
@@ -115,7 +128,7 @@ Adaptative dashboard including :
 
 ### sae23 database table specs 
 - 'Administration' : Admin user and password (MD5 encrypted).
-- 'Batiment' : Building name, login and password for the building manager.
+- 'Batiment' : Building name, login and password for the building manager (MD5 encrypted).
 - 'capteur' : Sensors type, building, floor, room, MQTT topic
 - 'mesure' : measure date and time
 - 'valeur' : value returned by sensors
@@ -124,7 +137,7 @@ Tables are linked by the fallowing foreign_key :
 - 'valeur': id_mesure and id_capteur with 'id' column of table 'mesure' and 'capteur'.
 - 'capteur' : 'batiment' column with the 'id' column of the 'batiment' table.
 
-![conceptor_view](https://github.com/TheToto318/IoT_stack/blob/main/mariadb/Conceptor_view_sae23_db.png)
+![conceptor_view](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Conceptor_view_sae23.png)
 
 
 
