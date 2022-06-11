@@ -12,7 +12,7 @@
   </a>
 </p>
 
-> IoT_stack that generate metrics values for buildings for visualization with Grafana and a HTML/PHP/JS dynamic website
+> IoT_stack that generate metrics values of buildings for visualization with Grafana and a HTML/PHP/JS dynamic website
 
 ### 🏠 [Homepage](https://github.com/TheToto318/IoT_stack)
 
