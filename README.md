@@ -60,6 +60,9 @@ docker compose -p "IoT_Stack" up -d
   - Database : capteurs
   - User : grafana
   - Password : grafana23
+- NodeRED :
+  - User : sae23
+  - Password : nodered23
 - MariaDB :
   - Hostname : db
   - Database : sae23
