@@ -1,0 +1,6 @@
+
+//affichage des données:
+    while( $result = mysql_fetch_object( $requete ) )
+    {
+       echo("<div align=\"center\">".$result->nom." ".$result->prenom." <a href=\"#\" onClick=\"confirme('".$result->id."')\" >supprimer</a><br>\n") ;
+    }
