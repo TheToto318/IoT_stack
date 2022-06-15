@@ -107,12 +107,6 @@ CREATE TABLE `mesure` (
   `heure` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `mesure`
---
-
-INSERT INTO `mesure` (`id`, `date`, `heure`) VALUES
-(1, '2022-06-15', '17:13:54');
 
 -- --------------------------------------------------------
 
@@ -127,12 +121,6 @@ CREATE TABLE `valeur` (
   `id_mesure` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `valeur`
---
-
-INSERT INTO `valeur` (`id`, `valeur`, `id_capteur`, `id_mesure`) VALUES
-(1, 652, 4, 1);
 
 --
 -- Index pour les tables déchargées
