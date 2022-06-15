@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : mer. 15 juin 2022 à 15:10
+-- Généré le : mer. 15 juin 2022 à 15:13
 -- Version du serveur : 10.8.3-MariaDB-1:10.8.3+maria~jammy
 -- Version de PHP : 8.0.20
 
@@ -107,6 +107,13 @@ CREATE TABLE `mesure` (
   `heure` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `mesure`
+--
+
+INSERT INTO `mesure` (`id`, `date`, `heure`) VALUES
+(1, '2022-06-15', '17:13:54');
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +126,13 @@ CREATE TABLE `valeur` (
   `id_capteur` int(11) NOT NULL,
   `id_mesure` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `valeur`
+--
+
+INSERT INTO `valeur` (`id`, `valeur`, `id_capteur`, `id_mesure`) VALUES
+(1, 652, 4, 1);
 
 --
 -- Index pour les tables déchargées
@@ -183,13 +197,13 @@ ALTER TABLE `capteur`
 -- AUTO_INCREMENT pour la table `mesure`
 --
 ALTER TABLE `mesure`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `valeur`
 --
 ALTER TABLE `valeur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
@@ -199,14 +213,14 @@ ALTER TABLE `valeur`
 -- Contraintes pour la table `capteur`
 --
 ALTER TABLE `capteur`
-  ADD CONSTRAINT `id_batiment` FOREIGN KEY (`batiment`) REFERENCES `batiment` (`id`);
+  ADD CONSTRAINT `id_batiment` FOREIGN KEY (`batiment`) REFERENCES `batiment` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `valeur`
 --
 ALTER TABLE `valeur`
-  ADD CONSTRAINT `id_capteur` FOREIGN KEY (`id_capteur`) REFERENCES `capteur` (`id`),
-  ADD CONSTRAINT `id_mesure` FOREIGN KEY (`id_mesure`) REFERENCES `mesure` (`id`);
+  ADD CONSTRAINT `id_capteur` FOREIGN KEY (`id_capteur`) REFERENCES `capteur` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `id_mesure` FOREIGN KEY (`id_mesure`) REFERENCES `mesure` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
