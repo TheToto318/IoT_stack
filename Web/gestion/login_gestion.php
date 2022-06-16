@@ -15,7 +15,7 @@
 		{
 			if(substr($_SESSION['name_gestion'], 0, 7) == 'Gestio-')
 			{
-				header('./');
+				header("Location: ./");
 			}
 		}
 
