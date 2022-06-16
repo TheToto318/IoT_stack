@@ -48,6 +48,7 @@ All the services are dockerized, images are pre-provisionned :
 
 ```sh
 git clone https://github.com/TheToto318/IoT_stack.git
+cd IoT_stack
 docker compose -p "IoT_Stack" up -d
 ```
 
