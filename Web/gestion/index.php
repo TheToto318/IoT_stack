@@ -118,7 +118,7 @@
 
 							echo('<div class="box"><div class="tab"><table>');
 
-							echo("<tr><th>Date</th><th>Time</th><th>valeur</th></tr>");
+							echo("<tr><th>Date</th><th>Time</th><th>Value</th></tr>");
 
 							for ($d = 0; $d < mysqli_num_rows($result_mesure); $d++)
 							{

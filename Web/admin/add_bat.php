@@ -25,7 +25,7 @@
             }
             if($err == 2)
             {
-                echo("<div class='erreur'>Please use fallowing pattern for login : 'Gestio-X' (X : Manager ID)</div>");
+                echo("<div class='erreur'>Please use following pattern for login : 'Gestio-X' (X : Manager ID)</div>");
             }
             if($err == 3)
             {
