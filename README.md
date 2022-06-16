@@ -71,6 +71,19 @@ docker compose -p "IoT_Stack" up -d
   - Database : sae23
   - User : sae23
   - Password : sae23pass
+- Dynamic website :
+   - Administrator :
+      - User : Admin
+      - Pass : 4d?m17nisTt?r4!a0n
+   - Manager 1 :
+      - User : Gestio-1
+      - Password : C0u5r?sc745e!
+   - Manager 2 :
+      - User : Gestio-2
+      - Password : 4dm1nn?srt!0n
+   - Manager 3 :
+      - User : Gestio-3
+      - Password : G7iM5n14s?ti!
 
 ## Usage
 Services are accessible by the following ports :
