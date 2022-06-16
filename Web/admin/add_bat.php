@@ -42,11 +42,11 @@
     <p>Ajout d'un batiment</p>
 
     <form action="envoie_add_bat.php" method="POST">
-        <input type="text" name="Name" placeholder="RT">
+        <input type="text" name="nom" placeholder="RT">
         <br />
         <input type="text" name="login" placeholder="Gestio-X">
         <br />
-        <input type="password" name="Password" placeholder="password">
+        <input type="password" name="mdp" placeholder="password">
         <br />
         <input type="submit" value="Add building">
     </form>

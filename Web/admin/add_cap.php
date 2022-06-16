@@ -51,16 +51,15 @@
     ?>
 
         <div class="text-form">Étage : </div>
-        <input type="text" name="Floor" placeholder="Ex : 1">
+        <input type="text" name="etage" placeholder="Ex : 1">
         <br />
         <br />
         <div class="text-form">Salle : </div>
-        <input type="text" name="Room" placeholder="Ex : E104">
+        <input type="text" name="salle" placeholder="Ex : E104">
         <br />
         <br />
         <div class="text-form">Sensor type : </div>
         <input type="text" name="type" placeholder="Ex : temperature">
-        <input type="hidden" name="nomBat" value='<?php echo($nomBat);?>'>
         <br />
         <br />
         <input type="submit" value="Add sensor">

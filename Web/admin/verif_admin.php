@@ -38,7 +38,7 @@
 			}
 
 			$_SESSION['name_admin'] = $user;
-			header('Location: ./admin/');
+			header('Location: ./');
 		}
 		else
 		{

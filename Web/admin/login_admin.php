@@ -15,7 +15,7 @@
 		{
 			if($_SESSION['name_admin'] == 'Admin')
 			{
-				header('Location: ./admin/');
+				header('Location: ./');
 			}
 		}
 
