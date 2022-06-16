@@ -22,6 +22,6 @@
 
 	<br />
 	<a href="del_cap.php">Delete an other sensor</a><br />
-    <a href="/SAE23/admin">Back to admin page</a>
+    <a href="./">Back to admin page</a>
 </body>
 </html>

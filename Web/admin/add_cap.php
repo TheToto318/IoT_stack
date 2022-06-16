@@ -51,11 +51,11 @@
     ?>
 
         <div class="text-form">Étage : </div>
-        <input type="text" name="Floor" placeholder="Ex : 1">
+        <input type="text" name="etage" placeholder="Ex : 1">
         <br />
         <br />
         <div class="text-form">Salle : </div>
-        <input type="text" name="Room" placeholder="Ex : E104">
+        <input type="text" name="salle" placeholder="Ex : E104">
         <br />
         <br />
         <div class="text-form">Sensor type : </div>
