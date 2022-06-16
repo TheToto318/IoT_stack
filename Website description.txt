@@ -1,0 +1,41 @@
+Welcome to the IoT_Stack dynamic website, this webpage is a part of the SAE23 project initiated by the Blagnac college and made by four students :
+- Roques Clément (Frontend developer)
+- Roux Thomas (Backend developer)
+- Naissant Mattieu (Frontend developer)
+- Chauvet Matthias (Frontend developer)
+
+The purpose of this website is to manage the IOT system of the Blagnac college which include : 
+- Severals building, floors and rooms
+- Sensors of various types : temperature, co2 and luminosity 
+
+Metric are recovered from an MQTT broker by a PHP script embedded into a docker container and sent to a MariaDB database. 
+These metric are generated every minutes by a Bash script in a docker container before being send to the MQTT broker.
+
+This website runs thanks to an Apache Web server also integrated into a docker container.
+
+An other part of this project consist to process these metrics with nodeRED associated with InfluxDB + Grafana for visualization.
+These services are accessible with the following URL :
+- nodeRED : https://sae23.cloudroux.ovh/nodered/
+- Grafana : https://sae23.cloudroux.ovh/grafana/
+
+PHPMyAdmin interface to manage the database used by this website is also accesible with this URL : https://sae23.cloudroux.ovh/phpmyadmin/
+
+The complete workflow to recover and manage these metric is dockerized and can be run with only one command using docker-compose. 
+
+Images are customized and uploaded into our Docker Hub repository : https://hub.docker.com/r/totorx/sae23
+
+The whole stack is hosted on Thomas's server to be reachable from internet with the "sae23.cloudroux.ovh" domain name. 
+
+For more information, take a look at our Github page : https://github.com/TheToto318/IoT_stack
+
+
+Thanks to the different tab above you will be able to : 
+- Add/delete buildings to monitor with an associated manager account (only for administrator).
+- Add/delete sensors with associated floor and room (only for administrator).
+- See the last metrics recovered without authentication. (on the overview page).
+- See metrics history for all rooms with graphs by logging with a manager credentials. 
+
+This website uses the following languages : 
+- HTML
+- PHP
+- JavaScript
