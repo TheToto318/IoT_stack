@@ -125,7 +125,10 @@ Adaptative dashboard including :
 
 ## Dynamic website 
 
-Coming soon 
+## Specs
+- Overview of the last metrics for all users
+- Administrator user with following rights :
+    - 
 
 ## Flow NodeRED
 
