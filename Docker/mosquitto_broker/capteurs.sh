@@ -4,17 +4,17 @@ broker="localhost"
 #user="student"
 #pass="student"
 
-sql="SELECT capteur.salle FROM capteur;";
+sql="SELECT capteur.salle FROM capteur;";                                                       
 i=0
 while IFS=$'\t' read salle ;do
-    salles[$i]=$salle
+    salles[$i]=$salle                                                                                       #Get all the sensors room to put them into the 'salles' array which will be used to generate sensors values 
     ((i++))
 done  < <(mysql -D 'sae23' --default-character-set=utf8 -u sae23 -psae23pass -h db -N -e "$sql")
 
 sql="SELECT capteur.topic FROM capteur;";
 i=0
 while IFS=$'\t' read topic ;do
-    topics[$i]=$topic
+    topics[$i]=$topic                                                                                       #Get all the topics values to put them into the 'topics' array which will be used to generate sensors values 
     ((i++))
 done  < <(mysql -D 'sae23' --default-character-set=utf8 -u sae23 -psae23pass -h db -N -e "$sql")
 
@@ -101,7 +101,7 @@ do
 
     sql="SELECT capteur.topic FROM capteur;";
     i=0
-    while IFS=$'\t' read topic ;do
+    while IFS=$'\t' read topic ;do                                                                                    #Check after each values generated for new rooms or topics
         topics[$i]=$topic
         ((i++))
     done  < <(mysql -D 'sae23' --default-character-set=utf8 -u sae23 -psae23pass -h db -N -e "$sql")
