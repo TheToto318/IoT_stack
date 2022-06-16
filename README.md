@@ -37,6 +37,8 @@ All the services are dockerized, images are pre-provisionned :
 - mosquitto_broker : Mosquitto server and metric generator script.
 - cron : MQTT metric parser 
 
+Images are stored in our Docker Hub repository : https://hub.docker.com/r/totorx/sae23
+
 
 ## Workflow
 
