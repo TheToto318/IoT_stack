@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add sensors</title>
+    <title>Ajout d'un capteur</title>
 </head>
 <body>
 
@@ -11,32 +11,37 @@
 
         if(!isset($_SESSION['name_admin']))
         {
-            header('Location: ../');
+            header('Location: /SAE23/');
         }
 
-        include ("mysql.php");
+        $db_user = "root";
+        $db_pass = "";
+        $db_name = "sae23";
+        $db_host = "localhost";
+
+        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
         if(isset($_GET['erreur']))
         {
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Error while adding a sensor, please try again.</div>");
+                echo("<div class='erreur'>Erreur lors de l'ajout du capteur, vérifiez vos valeurs et réessayez.</div>");
             }
             if($err == 2)
             {
-                echo("<div class='erreur'>Please fill all the fields.</div>");
+                echo("<div class='erreur'>Tous les champs ne sont pas remplis</div>");
             }
             if($err == 3)
             {
-                echo("<div class='erreur'>This sensor already exist.</div>");
+                echo("<div class='erreur'>Ce capteur existe déjà.</div>");
             }
         }
 
         $bat = "SELECT id, nom FROM batiment";
         $result = mysqli_query($db, $bat);
 
-        echo("Sensor's building : ");
+        echo("Bâtiment dans lequel le capteur sera ajouté : ");
         echo('<form action="envoie_add_cap.php" method="POST"><select name="batiment"><option value="">...</option>');
 
         for($i = 0; $i < mysqli_num_rows($result); $i++){
@@ -51,23 +56,23 @@
     ?>
 
         <div class="text-form">Étage : </div>
-        <input type="text" name="Floor" placeholder="Ex : 1">
+        <input type="text" name="etage" placeholder="Ex : 1">
         <br />
         <br />
         <div class="text-form">Salle : </div>
-        <input type="text" name="Room" placeholder="Ex : E104">
+        <input type="text" name="salle" placeholder="Ex : E104">
         <br />
         <br />
-        <div class="text-form">Sensor type : </div>
+        <div class="text-form">Type de capteur : </div>
         <input type="text" name="type" placeholder="Ex : temperature">
         <input type="hidden" name="nomBat" value='<?php echo($nomBat);?>'>
         <br />
         <br />
-        <input type="submit" value="Add sensor">
+        <input type="submit" value="Ajouter le capteur">
     </form>
 
     <br />
-    <a href="./">Back</a>
+    <a href="/SAE23/admin">Revenir en arrière</a>
 
 </body>
 </html>

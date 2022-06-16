@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Management</title>
+	<title>Gestion</title>
 	<link rel="stylesheet" href="../style/styleGestion.css">
 </head>
 <body>
@@ -24,12 +24,17 @@
 		}
 		if(!isset($_SESSION['name_gestion']))
 		{
-			header('Location: ../');
+			header('Location: /SAE23/');
 		}
 
 		echo('<div class="session">' . $_SESSION['name_gestion'] . '</div>');
 
-		include ("mysql.php");
+		$db_user = "root";
+		$db_pass = "";
+		$db_name = "sae23";
+		$db_host = "localhost";
+
+		$db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 //--------------------------------------------------------------------------------------------------------------------//
 
@@ -44,14 +49,14 @@
 		$etage = "SELECT DISTINCT etage FROM capteur LEFT JOIN Batiment ON Capteur.batiment = Batiment.id WHERE Batiment.id = '$bat' ORDER BY etage";
 		$result_etage = mysqli_query($db, $etage);
 
-		echo('<div class="nomBat">' . "Building $nomBat" . '</div>');
+		echo('<div class="nomBat">' . "Batiment $nomBat" . '</div>');
 
 		?>
 
 		<nav>
 			<ul>
-				<li><a href="../">Home</a></li>
-				<li><a href="deconnexion_gestion.php">Logoff</a></li>
+				<li><a href="../">Retour à l'accueil</a></li>
+				<li><a href="deconnexion_gestion.php">Déconnexion</a></li>
 			</ul>
 		</nav>
 
@@ -80,7 +85,7 @@
 				$numEtage = mysqli_fetch_assoc($result_etage);
 				$eta = $numEtage["etage"];
 
-				echo('<div class="etage">' . "Floor $eta" . '</div>');
+				echo('<div class="etage">' . "Etage $eta" . '</div>');
 				$salle = "SELECT DISTINCT salle FROM Capteur WHERE Capteur.etage = '$eta' AND Capteur.batiment = '$bat'"; 
 				$result_salle = mysqli_query($db, $salle);
 
@@ -90,7 +95,7 @@
 					$sal = $numSalle["salle"];
 
 					echo('<div class="salle">' . "$sal" . '</div>');
-					$capteur = "SELECT Capteur.id, Capteur.type FROM Capteur WHERE Capteur.salle = '$sal' AND Capteur.etage = '$eta' AND Capteur.batiment = '$bat'";
+					$capteur = "SELECT id, type FROM Capteur WHERE Capteur.salle = '$sal' AND Capteur.etage = '$eta' AND Capteur.batiment = '$bat'";
 					$result_capteur = mysqli_query($db, $capteur);
 
 					for($c = 0; $c < mysqli_num_rows($result_capteur); $c++)
@@ -118,7 +123,7 @@
 
 							echo('<div class="box"><div class="tab"><table>');
 
-							echo("<tr><th>Date</th><th>Time</th><th>valeur</th></tr>");
+							echo("<tr><th>Date</th><th>Heure</th><th>valeur</th></tr>");
 
 							for ($d = 0; $d < mysqli_num_rows($result_mesure); $d++)
 							{
@@ -179,7 +184,7 @@
 							}
 
 							echo("<div class='mesures'><b>Mesures : </b><br />");
-							echo("<br />Average : " . round($moyenne, 2) . $unite);
+							echo("<br />Moyenne : " . round($moyenne, 2) . $unite);
 							echo("<br />Maximum : " . $max . $unite);
 							echo("<br />Minimum : " . $min . $unite . "</div>");
 							
@@ -200,7 +205,7 @@
 								  data: {
 								    labels: y,
 								    datasets: [{
-								      label: 'Metrics, x : Time, y : Value (1/20)',
+								      label: 'Données (fonction de l\'heure) 1/20 ',
 								      data: x,
 								      fill: true,
 								      backgroundColor: "#3e92e680",
@@ -219,7 +224,7 @@
 		}
 		else
 		{
-			echo("No data for this building");
+			echo("Aucune donnée pour ce bâtiment.");
 		}
 	?>
 

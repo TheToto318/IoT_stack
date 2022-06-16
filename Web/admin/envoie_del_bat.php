@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add building</title>
+    <title>Envoie du bâtiment</title>
 </head>
 <body>
 
@@ -14,7 +14,12 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        $db_user = "root";
+        $db_pass = "";
+        $db_name = "sae23";
+        $db_host = "localhost";
+
+        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
         $bat = mysqli_real_escape_string($db, htmlspecialchars($_POST['batiment']));
 

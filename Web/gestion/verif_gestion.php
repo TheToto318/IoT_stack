@@ -7,9 +7,14 @@
 
 	<?php
 
-		echo("Login...<br /><br />");
+		echo("Connexion en cours...<br /><br />");
 
-		include ("mysql.php");
+		$db_user = "root";
+		$db_pass = "";
+		$db_name = "sae23";
+		$db_host = "localhost";
+
+		$db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 		$login = mysqli_real_escape_string($db,htmlspecialchars($_POST['login']));
     	$password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
@@ -25,7 +30,7 @@
 		}
 		else
 		{
-			header('Location: ./login_gestion.php?erreur=1');
+			header('Location: /SAE23/gestion/login_gestion.php?erreur=1');
 		}
 
 		if(password_verify($password, $hash) == 1 && $login == $user)
@@ -38,11 +43,11 @@
 			}
 
 			$_SESSION['name_gestion'] = $user;
-			header('Location: ./');
+			header('Location: /SAE23/gestion/');
 		}
 		else
 		{
-			header('Location: ./login_gestion.php?erreur=1');
+			header('Location: /SAE23/gestion/login_gestion.php?erreur=1');
 		}
 
 	?>

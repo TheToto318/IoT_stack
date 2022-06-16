@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Logoff</title>
+	<title>Deconnexion</title>
 </head>
 <body>
 
@@ -10,7 +10,7 @@
 		session_start();
 		unset($_SESSION['name_admin']);
 		session_destroy();
-		header('Location: ../');
+		header('Location: /SAE23/');
 
 	?>
 

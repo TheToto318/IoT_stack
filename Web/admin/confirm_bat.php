@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Building added</title>
+	<title>Bâtiment ajouté</title>
 </head>
 <body>
 
@@ -14,15 +14,20 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        $db_user = "root";
+        $db_pass = "";
+        $db_name = "sae23";
+        $db_host = "localhost";
 
-        echo("Building as been created");
+        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+        echo("Le bâtiment a bien été ajouté");
 
 	?>
 
 	<br />
-	<a href="add_bat.php">Add an other building</a><br />
-	<a href="add_cap.php">Add a sensor</a><br />
-    <a href="./">Back to admin page</a>
+	<a href="add_bat.php">Ajouter un autre bâtiment</a><br />
+	<a href="add_cap.php">Ajouter un capteur</a><br />
+    <a href="/SAE23/admin">Revenir à la page d'administration</a>
 </body>
 </html>

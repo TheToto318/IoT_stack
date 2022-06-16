@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Building deleted</title>
+	<title>Bâtiment supprimé</title>
 </head>
 <body>
 
@@ -14,15 +14,20 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        $db_user = "root";
+        $db_pass = "";
+        $db_name = "sae23";
+        $db_host = "localhost";
 
-        echo("Building and associated sensors deleted.");
+        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+        echo("Le bâtiment a bien été supprimé, ainsi que les capteurs et les données y appartennant.");
 
 	?>
 
 	<br />
-	<a href="del_bat.php">Delete an other building</a><br />
-	<a href="del_cap.php">Delete a sensor</a><br />
-    <a href="./">Back to admin page</a>
+	<a href="del_bat.php">Supprimer un autre bâtiment</a><br />
+	<a href="del_cap.php">Supprimer un capteur</a><br />
+    <a href="/SAE23/admin">Revenir à la page d'administration</a>
 </body>
 </html>
