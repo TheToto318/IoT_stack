@@ -48,7 +48,7 @@
             }
             else
             {
-                $sql = "INSERT INTO Batiment (nom, login, mdp) VALUES ('$nom', '$login', '$pass')";
+                $sql = "INSERT INTO batiment (nom, login, mdp) VALUES ('$nom', '$login', '$pass')";
                 $result = mysqli_query($db, $sql);
                 if($result == 1)
                 {
