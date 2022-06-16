@@ -9,8 +9,13 @@
 	<br />
 	<a href="gestion/login_gestion.php">Gestion</a>
 	<br />
-	<a href="consultation.php">Consultation</a>
-	<br />
+
+	<?php
+
+		//$pass = password_hash("pass", PASSWORD_BCRYPT);
+		//echo($pass);
+
+	?>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ajout d'un bâtiment</title>
+    <title>Add building</title>
 </head>
 <body>
 
@@ -11,34 +11,29 @@
 
         if(!isset($_SESSION['name_admin']))
         {
-            header('Location: /SAE23/');
+            header('Location: ../');
         }
 
-        $db_user = "root";
-        $db_pass = "";
-        $db_name = "sae23";
-        $db_host = "localhost";
-
-        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+        include ("mysql.php");
 
         if(isset($_GET['erreur']))
         {
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Erreur lors de l'ajout du batiment, réessayez.</div>");
+                echo("<div class='erreur'>An error occured while adding a building</div>");
             }
             if($err == 2)
             {
-                echo("<div class='erreur'>Pour le login, respectez la forme 'Gestio-X' avec X le numéro du gestionnaire</div>");
+                echo("<div class='erreur'>Please use fallowing pattern for login : 'Gestio-X' (X : Manager ID)</div>");
             }
             if($err == 3)
             {
-                echo("<div class='erreur'>Bâtiment déjà existant, réessayez.</div>");
+                echo("<div class='erreur'>Building already exist, please try again.</div>");
             }
             if($err == 4)
             {
-                echo("<div class='erreur'>Gestionnaire déjà existant, réessayez.</div>");
+                echo("<div class='erreur'>Manager already exist, please try again.</div>");
             }
         }
 
@@ -47,17 +42,17 @@
     <p>Ajout d'un batiment</p>
 
     <form action="envoie_add_bat.php" method="POST">
-        <input type="text" name="nom" placeholder="RT">
+        <input type="text" name="Name" placeholder="RT">
         <br />
         <input type="text" name="login" placeholder="Gestio-X">
         <br />
-        <input type="password" name="mdp" placeholder="password">
+        <input type="password" name="Password" placeholder="password">
         <br />
-        <input type="submit" value="Ajouter le bâtiment">
+        <input type="submit" value="Add building">
     </form>
 
     <br />
-    <a href="/SAE23/admin">Revenir en arrière</a>
+    <a href="./">Back</a>
 
 </body>
 </html>

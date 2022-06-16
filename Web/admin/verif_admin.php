@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion</title>
+	<title>Login</title>
 </head>
 <body>
 
 	<?php
 
-		echo("Connexion en cours...<br /><br />");
+		echo("Login in<br /><br />");
 
-		$db_user = "root";
-		$db_pass = "";
-		$db_name = "sae23";
-		$db_host = "localhost";
-
-		$db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+		include ("mysql.php");
 
 		$id = "SELECT login, mdp FROM Administration";
 		$qry = mysqli_query($db, $id);
@@ -30,7 +25,7 @@
 		} 
 		else
 		{
-			header('Location: http://localhost/SAE23/admin/login_admin.php');
+			header('Location: ./login_admin.php');
 		}
 
 		if(password_verify($password, $hash) == 1 && $login == $user)
@@ -43,11 +38,11 @@
 			}
 
 			$_SESSION['name_admin'] = $user;
-			header('Location: http://localhost/SAE23/admin/');
+			header('Location: ./admin/');
 		}
 		else
 		{
-			header('Location: http://localhost/SAE23/admin/login_admin.php?erreur=1');
+			header('Location: ./login_admin.php?erreur=1');
 		}
 
 	?>
