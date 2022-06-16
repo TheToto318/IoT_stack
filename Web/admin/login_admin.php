@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion Administration</title>
+	<title>Admin login</title>
 </head>
 <body>
 
 	<?php
 
-		echo("Bonjour !<br />Connexion à la page d'administration.<br /><br />");
+		echo("Please use your credentials to login to the admin page");
 
 		session_start();
 
@@ -15,7 +15,7 @@
 		{
 			if($_SESSION['name_admin'] == 'Admin')
 			{
-				header('Location: /SAE23/admin/');
+				header('Location: ./admin/');
 			}
 		}
 
@@ -24,7 +24,7 @@
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Identifiants incorrects</div>");
+                echo("<div class='erreur'>Incorrect user or password</div>");
             }
         }
 
@@ -33,10 +33,10 @@
 	<form action="verif_admin.php" method="POST">
 		<input type="text" name="login" placeholder="login">	
 		<input type="password" name="password" placeholder="password">
-		<input type ="submit" name="submit" value="Connexion">
+		<input type ="submit" name="submit" value="Login">
 		<br />
 		<br />
-		<a href="../index.php">Retour à l'accueil</a>
+		<a href="../index.php">Home</a>
 	</form>
 
 </body>

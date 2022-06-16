@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>Capteur ajouté</title>
+	<title>Sensor added</title>
 </head>
 <body>
 
@@ -14,20 +14,15 @@
             header('Location: ../');
         }
 
-        $db_user = "root";
-        $db_pass = "";
-        $db_name = "sae23";
-        $db_host = "localhost";
+        include ("mysql.php");
 
-        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
-        echo("Le capteur a bien été ajouté");
+        echo("Sensor has been created");
 
 	?>
 
 	<br />
-	<a href="add_cap.php">Ajouter un autre capteur</a><br />
-	<a href="del_cap.php">Supprimer un capteur</a><br />
-    <a href="/SAE23/admin">Revenir à la page d'administration</a>
+	<a href="add_cap.php">Add an other sensor</a><br />
+	<a href="del_cap.php">Delete a sensor</a><br />
+    <a href="./">Back to admin page</a>
 </body>
 </html>

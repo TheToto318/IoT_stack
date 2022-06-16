@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Administration</title>
+	<title>Admin page</title>
 </head>
 <body>
 
@@ -16,32 +16,27 @@
 
 		if(!isset($_SESSION['name_admin']))
 		{
-			header('Location: /SAE23/');
+			header('Location: ../');
 		}
 
-		echo("Page d'administration<br /><br />");
+		echo("Admin page<br /><br />");
 
-		$db_user = "root";
-		$db_pass = "";
-		$db_name = "sae23";
-		$db_host = "localhost";
-
-		$db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+		include ("mysql.php");
 
 	?>
 
-	<a href="add_bat.php">Ajouter un batiment</a>
+	<a href="add_bat.php">Add a building</a>
 	<br />
-	<a href="del_bat.php">Supprimer un batiment</a>
+	<a href="del_bat.php">Delete a building</a>
 	<br />
-	<a href="add_cap.php">Ajouter un capteur</a>
+	<a href="add_cap.php">Add a sensor</a>
 	<br />
-	<a href="del_cap.php">Supprimer un capteur</a>
+	<a href="del_cap.php">Delete a sensor</a>
 	<br />
 	<br />
-	<a href="deconnexion_admin.php">Deconnexion</a>
+	<a href="deconnexion_admin.php">Logoff</a>
 	<br />
-	<a href="../">Retour à l'accueil</a>
+	<a href="../">Home</a>
 
 </body>
 </html>

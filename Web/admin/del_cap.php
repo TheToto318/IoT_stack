@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Selection du bâtiment</title>
+    <title>Select building</title>
 </head>
 <body>
 
@@ -11,7 +11,7 @@
 
         if(!isset($_SESSION['name_admin']))
         {
-            header('Location: http://localhost/SAE23/');
+            header('Location: ../');
         }
 
         if(isset($_GET['erreur']))
@@ -19,25 +19,20 @@
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Une erreur est survenue, réessayez.</div>");
+                echo("<div class='erreur'>An error occurred, please try again.</div>");
             }
             if($err == 2)
             {
-                echo("<div class='erreur'>Choisisez un bâtiment.</div>");
+                echo("<div class='erreur'>Select a building</div>");
             }
         }
 
-        $db_user = "root";
-        $db_pass = "";
-        $db_name = "sae23";
-        $db_host = "localhost";
-
-        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+        include ("mysql.php");
 
         $requete = "SELECT id, nom FROM batiment";
         $result = mysqli_query($db, $requete);
 
-        echo("Choisisez le bâtiment du capteur à supprimer : ");
+        echo("Select the building's sensor to delete : ");
         echo('<form action="del_cap_form.php" method="POST">');
 
         echo('<select name="batiment"><option value="">...</option>');
@@ -49,12 +44,12 @@
         }
         echo('</select>');
 
-        echo('<br /><br /><input type="submit" value="Choisir le bâtiment"></form>');
+        echo('<br /><br /><input type="submit" value="Select building"></form>');
 
     ?>
 
     <br />
-    <a href="/SAE23/admin">Revenir en arrière</a>
+    <a href="./">Back</a>
 
 </body>
 </html>

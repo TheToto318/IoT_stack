@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion Administration</title>
+	<title>Management login</title>
 </head>
 <body>
 
 	<?php
 
-		echo("Bonjour !<br />Connexion à la page de Gestion.<br /><br />");
+		echo("Please login to acces your building metrics");
 
 		session_start();
 
@@ -15,7 +15,7 @@
 		{
 			if(substr($_SESSION['name_gestion'], 0, 7) == 'Gestio-')
 			{
-				header('/');
+				header('./');
 			}
 		}
 
@@ -24,7 +24,7 @@
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Identifiants incorrects</div>");
+                echo("<div class='erreur'>Login or password incorrect</div>");
             }
         }
 
@@ -36,7 +36,7 @@
 		<input type ="submit" name="submit" value="Connexion">
 		<br />
 		<br />
-		<a href="../index.php">Retour à l'accueil</a>
+		<a href="../index.php">Home</a>
 	</form>
 
 </body>
