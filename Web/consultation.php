@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Consultation</title>
+    <title>Overview</title>
     <link rel="stylesheet" href="style/styleConsul.css">
 </head>
 <body>
 
+    <div class="bandeau">Overview</div>
+
+    <nav>
+        <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="deconnexion_gestion.php">Logoff</a></li>
+        </ul>
+    </nav>
+
+    <div class="info">Last value of each room :</div>
+
 	<?php
 
-		$db_user = "root";
-        $db_pass = "";
-        $db_name = "sae23";
-        $db_host = "localhost";
-
-        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
-        echo("Consultation<br /><br />");
+		include ("gestion/mysql.php");
 
         $reqBat = "SELECT id, nom FROM batiment";
         $resBat = mysqli_query($db, $reqBat);
 
         echo("<table>");
-        echo("<tr><th>Bâtiment</th><th>Etage</th><th>Salle</th><th>Capteur</th><th>Date</th><th>Heure</th><th>Valeur</th></tr>");
+        echo("<tr><th>Building</th><th>Floor</th><th>Room</th><th>Sensor</th><th>Date</th><th>Hour</th><th>Value</th></tr>");
 
         for($i = 0; $i < mysqli_num_rows($resBat); $i++){
 
@@ -59,9 +63,6 @@
         echo("</table>");
 
     ?>
-
-	<br />
-    <a href="./">Home</a>
 
 </body>
 </html>
