@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Acceuil</title>
+	<title>Home</title>
 </head>
 <body>
 
-	<a href="admin/login_admin.php">Administration</a>
+	<a href="admin/login_admin.php">Admin</a>
 	<br />
-	<a href="gestion/login_gestion.php">Gestion</a>
+	<a href="gestion/login_gestion.php">Management</a>
 	<br />
-
-	<?php
-
-		//$pass = password_hash("pass", PASSWORD_BCRYPT);
-		//echo($pass);
-
-	?>
-
+	<a href="consultation.php">Overview</a>
+	<br />
 </body>
 </html>
