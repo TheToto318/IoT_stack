@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Suppression d'un bâtiment</title>
+    <title>Delete building</title>
 </head>
 <body>
 
@@ -11,22 +11,17 @@
 
         if(!isset($_SESSION['name_admin']))
         {
-            header('Location: /SAE23/');
+            header('Location: ../');
         }
 
-        $db_user = "root";
-        $db_pass = "";
-        $db_name = "sae23";
-        $db_host = "localhost";
-
-        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+        include ("mysql.php"); 
 
         if(isset($_GET['erreur']))
         {
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Une erreur est survenue, réessayez.</div>");
+                echo("<div class='erreur'>An error occurred, please try again</div>");
             }
 
         }
@@ -34,7 +29,7 @@
         $bat = "SELECT id, nom FROM batiment";
         $result = mysqli_query($db, $bat);
 
-        echo("Choisisez le bâtiment à supprimer : ");
+        echo("Select the building to delete : ");
         echo('<form action="envoie_del_bat.php" method="POST"><select name="batiment"><option value="">...</option>');
 
         for($i = 0; $i < mysqli_num_rows($result); $i++){
@@ -44,12 +39,12 @@
             echo("<option value='$idBat'>" . $nomBat . "</options>");
         }
 
-        echo('</select><br /><br /><input type="submit" value="Supprimer le bâtiment"></form>');
+        echo('</select><br /><br /><input type="submit" value="Delete building"></form>');
 
     ?>
 
     <br />
-    <a href="/SAE23/admin">Revenir en arrière</a>
+    <a href="./">Back</a>
 
 </body>
 </html>
