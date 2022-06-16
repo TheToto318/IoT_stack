@@ -11,8 +11,11 @@
 	<br />
 	<a href="consultation.php">Overview</a>
 	<br />
+<<<<<<< Updated upstream
 
 	coucocu 
 
+=======
+>>>>>>> Stashed changes
 </body>
 </html>
