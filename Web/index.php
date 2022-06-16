@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Acceuil</title>
+	<title>Home</title>
 </head>
 <body>
 
-	<a href="admin/login_admin.php">Administration</a>
+	<a href="admin/login_admin.php">Admin</a>
 	<br />
-	<a href="gestion/login_gestion.php">Gestion</a>
+	<a href="gestion/login_gestion.php">Management</a>
 	<br />
-	<a href="consultation.php">Consultation</a>
+	<a href="consultation.php">Overview</a>
 	<br />
 
 </body>
