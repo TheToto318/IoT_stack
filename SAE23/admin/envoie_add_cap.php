@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Envoie du bâtiment</title>
+</head>
+<body>
+
+    <?php
+
+        session_start();
+
+        if(!isset($_SESSION['name_admin']))
+        {
+            header('Location: ../');
+        }
+
+        $db_user = "root";
+        $db_pass = "";
+        $db_name = "sae23";
+        $db_host = "localhost";
+
+        $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+        $batiment = mysqli_real_escape_string($db, htmlspecialchars($_POST["batiment"]));
+        $nomBat = mysqli_real_escape_string($db, htmlspecialchars($_POST["nomBat"]));
+        $etage = mysqli_real_escape_string($db, htmlspecialchars($_POST["etage"]));
+        $salle = mysqli_real_escape_string($db, htmlspecialchars($_POST["salle"]));
+        $type = strtolower(mysqli_real_escape_string($db, htmlspecialchars($_POST["type"])));
+
+        $verif = "SELECT salle, etage, type, batiment FROM capteur";
+        $resultVerif = mysqli_query($db, $verif);
+
+
+        for($i = 0; $i < mysqli_num_rows($resultVerif); $i++){
+            $row = mysqli_fetch_assoc($resultVerif);
+            if($row["batiment"] == $batiment && $row["etage"] == $etage && $row["salle"] == $salle && $row["type"] == $type){
+                header("Location: add_cap.php?erreur=3");       // Ce capteur existe déjà.
+                exit;
+            }
+        }
+
+
+        if($batiment == "..." || $etage == "" || $salle == "" || $type == ""){
+            header('Location: add_cap.php?erreur=2');           // Tous les champs ne sont pas remplis.
+            exit;
+        }
+
+        $topic = "iut/$nomBat/etage$etage/$salle/$type";
+        $requete = "INSERT INTO capteur (salle, etage, type, batiment, topic) VALUES ('$salle', '$etage', '$type', '$batiment', '$topic')";
+
+        $result = mysqli_query($db, $requete);
+            if($result == 1)
+            {
+                header('Location: confirm_cap.php');
+                exit;
+            }
+            else
+            {
+                header('Location: add_cap.php?erreur=1');       // Erreur lors de l'ajout du capteur, vérifiez vos valeurs et réessayer.
+                exit;
+            }
+
+    ?>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
