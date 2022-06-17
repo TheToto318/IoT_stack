@@ -121,14 +121,23 @@ Adaptative dashboard including :
   - Floor
   - Room
 - Direct, Min, Max and Average values of all sensors type.
-- Graphs for all sensors type. 
-
+- Graphs for all sensors type.
 ## Dynamic website 
 
 ## Specs
-- Overview of the last metrics for all users
+- Overview of the last metrics for all users.
+- Manager credentials, only able to see their associated building.
 - Administrator user with following rights :
-    - 
+  - Add/delete building with associated manager credentials.
+  - Add/delete sensors. 
+
+- Manager page inlude :
+  - Tables with metrics history.
+  - Line graph for all type of values.
+  - Statistics including average, minimum and maximum. 
+
+- Other functionalities :
+  - Admin and manager session to stay connected after login.
 
 ## Flow NodeRED
 
