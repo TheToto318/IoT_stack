@@ -52,3 +52,10 @@ services:
   cron:
     image: totorx/sae23:cron
     container_name: 'cron_sae23'
+
+  web:
+    image: nginx_sae23
+    container_name: nginx_sae23
+    restart: always
+    ports:
+      - 0933:8080
