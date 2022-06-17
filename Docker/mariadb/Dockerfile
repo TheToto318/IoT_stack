@@ -4,4 +4,4 @@
 FROM mariadb:latest
 
 #Copy the database creation script which will be launched at the container startup
-COPY sae23.sql /docker-entrypoint-initdb.d/
+COPY DB.sql /docker-entrypoint-initdb.d/

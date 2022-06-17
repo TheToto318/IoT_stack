@@ -51,7 +51,7 @@
 		<nav>
 			<ul>
 				<li><a href="../">Home</a></li>
-				<li><a href="deconnexion_gestion.php">Logoff</a></li>
+				<li><a href="deconnexion_gestion.php">Sign out</a></li>
 			</ul>
 		</nav>
 
@@ -100,7 +100,7 @@
 						$capId = $typecapteur["id"];
 
 						echo('<div class="capteur">' . "$cap" . '</div>');
-						$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat'";
+						$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' ORDER BY valeur.id DESC";
 						$result_mesure = mysqli_query($db, $mesure);
 
 						if(mysqli_num_rows($result_mesure) > 0)
@@ -145,12 +145,16 @@
 									$countVal = 0;
 								}
 
+								$dataPoints=array_reverse($dataPoints);
+
 								$countVal += 1;
 
 								if($countDate == 20){
 									array_push($dataHours, "'$heure:$minute'");
 									$countDate = 0;
 								}
+
+								$dataHours=array_reverse($dataHours);
 
 								$countDate += 1;
 
@@ -178,7 +182,7 @@
 								$unite = " ppm";
 							}
 
-							echo("<div class='mesures'><b>mesures : </b><br />");
+							echo("<div class='mesures'><b>Statistics : </b><br />");
 							echo("<br />Average : " . round($moyenne, 2) . $unite);
 							echo("<br />Maximum : " . $max . $unite);
 							echo("<br />Minimum : " . $min . $unite . "</div>");
