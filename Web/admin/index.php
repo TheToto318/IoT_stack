@@ -21,7 +21,7 @@
 
 		echo("Admin page<br /><br />");
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
 	?>
 

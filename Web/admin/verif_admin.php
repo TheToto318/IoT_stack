@@ -9,7 +9,7 @@
 
 		echo("Login in<br /><br />");
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
 		$id = "SELECT login, mdp FROM Administration";
 		$qry = mysqli_query($db, $id);

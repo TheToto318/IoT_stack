@@ -9,7 +9,7 @@
 
 		echo("Login...<br /><br />");
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
 		$login = mysqli_real_escape_string($db,htmlspecialchars($_POST['login']));
     	$password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));

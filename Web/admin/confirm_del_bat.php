@@ -14,7 +14,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         echo("Building and associated sensors deleted.");
 
