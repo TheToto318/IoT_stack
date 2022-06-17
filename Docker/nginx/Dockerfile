@@ -1,4 +1,4 @@
 FROM trafex/php-nginx
 
-COPY Web /var/www/html
+COPY ../../Web /var/www/html
 
