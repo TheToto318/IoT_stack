@@ -145,16 +145,12 @@
 									$countVal = 0;
 								}
 
-								$dataPoints=array_reverse($dataPoints);
-
 								$countVal += 1;
 
 								if($countDate == 20){
 									array_push($dataHours, "'$heure:$minute'");
 									$countDate = 0;
 								}
-
-								$dataHours=array_reverse($dataHours);
 
 								$countDate += 1;
 
@@ -169,6 +165,10 @@
 								}
 
 							}
+
+							$dataPoints=array_reverse($dataPoints);
+							$dataHours=array_reverse($dataHours);
+
 
 							echo("</table></div>");
 
