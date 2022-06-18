@@ -9,10 +9,11 @@
 	<div class="bandeau">Terms of service</div>
 	<nav>
         <ul>
+            <li><a href="./">Home</a></li>
             <li><a href="admin/login_admin.php">Admin</a></li>
             <li><a href="gestion/login_gestion.php">Management</a></li>
             <li><a href="consultation.php">Overview</a></li>
-            <li><a href="./">Home</a></li>
+            <li><a href="mentions_legales.php">Terms of service</a></li>
         </ul>
     </nav>
 

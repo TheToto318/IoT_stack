@@ -9,6 +9,7 @@
 	<div class="bandeau">Home</div>
 	<nav>
         <ul>
+            <li><a href="./">Home</a></li>
             <li><a href="admin/login_admin.php">Admin</a></li>
             <li><a href="gestion/login_gestion.php">Management</a></li>
             <li><a href="consultation.php">Overview</a></li>

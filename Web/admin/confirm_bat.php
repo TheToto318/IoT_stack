@@ -2,8 +2,20 @@
 <html lang="fr">
 <head>
 	<title>Building added</title>
+	<link rel="stylesheet" href="../style/styleAdmin.css">
 </head>
 <body>
+
+	<div class="bandeau">Add building</div>
+ 	<nav>
+       	<ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="login_admin.php">Admin</a></li>
+            <li><a href="../gestion/login_gestion.php">Management</a></li>
+            <li><a href="../consultation.php">Overview</a></li>
+            <li><a href="../mentions_legales.php">Terms of service</a></li>
+        </ul>
+    </nav>
 
 	<?php 
 
@@ -16,13 +28,14 @@
 
         include ("mysql.php");
 
-        echo("Building as been created");
+        echo("<div class='confirm'>Building as been created</div>");
 
 	?>
 
-	<br />
-	<a href="add_bat.php">Add an other building</a><br />
-	<a href="add_cap.php">Add a sensor</a><br />
-    <a href="./">Back to admin page</a>
+	<div class="form2">
+		<div class="ele1"><a href="add_bat.php">Add an other building</a></div>
+		<div class="ele2"><a href="add_cap.php">Add a sensor</a></div>
+    	<div class="ele3"><a href="./">Back to admin page</a></div>
+    </div>
 </body>
 </html>

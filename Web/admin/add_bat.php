@@ -2,8 +2,20 @@
 <html>
 <head>
     <title>Add building</title>
+    <link rel="stylesheet" href="../style/styleAdmin.css">
 </head>
 <body>
+
+    <div class="bandeau">Add building</div>
+    <nav>
+        <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="login_admin.php">Admin</a></li>
+            <li><a href="../gestion/login_gestion.php">Management</a></li>
+            <li><a href="../consultation.php">Overview</a></li>
+            <li><a href="../mentions_legales.php">Terms of service</a></li>
+        </ul>
+    </nav>
 
     <?php
 
@@ -39,20 +51,15 @@
 
     ?>
 
-    <p>Ajout d'un batiment</p>
+    <div class="form">
+        <form action="envoie_add_bat.php" method="POST">
+            <div class="ele1"><input type="text" name="nom" placeholder="RT"></div>
+            <div class="ele2"><input type="text" name="login" placeholder="Gestio-X"></div>
+            <div class="ele3"><input type="password" name="mdp" placeholder="password"></div>
+            <div class="submit"><input type="submit" value="Add building"></div>
+        </form>
+    </div>
 
-    <form action="envoie_add_bat.php" method="POST">
-        <input type="text" name="nom" placeholder="RT">
-        <br />
-        <input type="text" name="login" placeholder="Gestio-X">
-        <br />
-        <input type="password" name="mdp" placeholder="password">
-        <br />
-        <input type="submit" value="Add building">
-    </form>
-
-    <br />
-    <a href="./">Back</a>
 
 </body>
 </html>

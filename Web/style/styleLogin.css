@@ -6,6 +6,15 @@ body {
 
 }
 
+.erreur {
+
+	text-align : center;
+	font-size : 20px;
+	color : red;
+	margin-top : 40px;
+
+}
+
 .bandeau {
 
 	background-color : #0050A1;
@@ -17,12 +26,62 @@ body {
 	padding : 30px;
 }
 
-.info {
+.connexion {
+	
+	margin : 0 auto;
+	margin-top : 40px;
+	width : 300px;
+	height : 270px;
+	background-color : #0050A1;
+	border-radius: 3px;
+	padding : 10px;
 
-	font-size : 20px;
+}
+
+.login {
+
+	position : relative;
+	top : 30px;
 	text-align : center;
-	margin-bottom : 10px;
+	font-size : 20px;
 
+}
+
+.password {
+
+	position : relative;
+	top : 70px;
+	text-align : center;
+
+}
+
+.submit {
+
+	position : relative;
+	top : 110px;
+	text-align : center;
+
+}
+
+.login input {
+
+	width : 250px;
+	height : 40px;
+
+}
+
+.password input {
+
+	width : 250px;
+	height : 40px;
+	
+}
+
+.submit input {
+
+	width : 200px;
+	height : 30px;
+	
 }
 
 nav ul
@@ -68,42 +127,5 @@ a {
 a:hover {
 
 	color : grey;
-}
-
-table {
-
-	width : 100%;
-
-}
-
-th {
-
-	background-color : #CCCCCC;
-
-}
-
-td {
-
-	background-color : #FFFFFF;
-
-}
-
-td:hover {
-
-	background-color : #EEEEEE;
-
-}
-
-th, td {
-
-	text-align: center;
-	padding: 15px;
-
-}
-
-table, th, td {
-
-  	border: 1px solid;
-  	border-collapse: collapse;
 
 }
