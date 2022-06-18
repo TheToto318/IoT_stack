@@ -100,7 +100,7 @@
 						$capId = $typeCapteur["id"];
 
 						echo('<div class="capteur">' . "$cap" . '</div>');
-						$mesure = "SELECT date, heure, valeur FROM Mesure LEFT JOIN Valeur ON Valeur.id_mesure = Mesure.id LEFT JOIN Capteur ON Valeur.id_capteur = Capteur.id WHERE Capteur.id = '$capId' AND Capteur.salle = '$sal' AND Capteur.etage = '$eta' AND Capteur.batiment = '$bat'";
+						$mesure = "SELECT date, heure, valeur FROM Mesure LEFT JOIN Valeur ON Valeur.id_mesure = Mesure.id LEFT JOIN Capteur ON Valeur.id_capteur = Capteur.id WHERE Capteur.id = '$capId' AND Capteur.salle = '$sal' AND Capteur.etage = '$eta' AND Capteur.batiment = '$bat' ORDER BY mesure.date DESC, mesure.heure DESC";
 						$result_mesure = mysqli_query($db, $mesure);
 
 						if(mysqli_num_rows($result_mesure) > 0)
@@ -163,8 +163,10 @@
 								if($mesVal < $min){
 									$min = $mesVal;
 								}
-
 							}
+
+							$dataPoints = array_reverse($dataPoints);
+							$dataHours = array_reverse($dataHours);
 
 							echo("</table></div>");
 
@@ -200,7 +202,7 @@
 								  data: {
 								    labels: y,
 								    datasets: [{
-								      label: 'Metrics, x : Time, y : Value (1/20)',
+								      label: 'Metrics, x : Time, y : Value (1/20) ',
 								      data: x,
 								      fill: true,
 								      backgroundColor: "#3e92e680",

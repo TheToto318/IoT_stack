@@ -36,7 +36,7 @@
 		<input type ="submit" name="submit" value="Login">
 		<br />
 		<br />
-		<a href="../index.php">Home</a>
+		<a href="../">Home</a>
 	</form>
 
 </body>

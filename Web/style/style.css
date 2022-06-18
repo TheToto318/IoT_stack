@@ -6,7 +6,7 @@ body {
 
 }
 
-.nomBat {
+.bandeau {
 
 	background-color : #0050A1;
 	font-size : 50px;
@@ -17,80 +17,62 @@ body {
 	padding : 30px;
 }
 
-.etage {
+.description {
 
-	background-color : #000033;
-	font-size : 40px;
-	color : white;
-	padding : 10px;
-	margin-bottom : 10px;
-
-}
-
-.salle {
-
-	background-color : #0050A1;
-	font-size : 20px;
-	color : white;
-	padding : 10px;
-	margin-top : 10px;
-	margin-bottom : 10px;
+	font-size : 18px;
+	margin : 30px;
+	padding : 30px;
+	background-color : #B0C4E0;
+	filter : drop-shadow(0px 0px 20px #666666);
 
 }
 
-.capteur {
+.gauche img {
 
-	background-color : #0078F0;
-	font-size : 20px;
-	color : white;
-	padding : 10px;
-	margin-left : 20px;
-	margin-top : 10px;
-	margin-bottom : 10px;
-
-}
-
-.session {
-
-	position : absolute;
-	right : 10px;
-	padding : 10px;
-	color : white;
-
-}
-
-.box {
-
-	display : flex;
-	flex-wrap: wrap;
-	height : 500px;
-}
-
-.tab {
-
-	height : 100%;
-	width : 40%;
-	overflow: auto;
-	margin-left : 20px;
-	margin-right : 20px;
-}
-
-.mesures {
-
-	border: 1px solid;
-	padding : 10px;
-	margin-left : 20px;
-	width : 50%;
-	height : 20%;
-}
-
-.graph {
-
-	width : 55%;
-	max-width : 750px;
 	position : relative;
-	bottom : 75%;
-	left : 42%;
+	width : 600px;
+	float : left;
+	margin-bottom : 10px;
+	margin-right : 20px;
+	filter : drop-shadow(0px 0px 20px #333333);
+
+}
+
+.gauche img:hover {
+
+	filter : drop-shadow(0px 0px 30px #333333);
+
+}
+
+.droite img {
+
+	position : relative;
+	width : 600px;
+	float : right;
+	margin-bottom : 10px;
+	margin-right : 20px;
+	filter : drop-shadow(0px 0px 20px #333333);
+
+}
+
+.droite img:hover {
+
+	filter : drop-shadow(0px 0px 30px #333333);
+
+}
+
+.w {
+
+	font-size : 30px;
+	display : inline;
+
+}
+
+.projet {
+
+	color : #0050A1;
+	font-weight : bold;
+	display : inline;
 
 }
 
@@ -106,6 +88,9 @@ nav ul li
 {
 
 	display : inline;
+	text-align : center;
+	margin-left : 60px;
+	margin-right : 60px;
 	position : relative;
 	top : 45%;
 
@@ -126,8 +111,6 @@ nav {
 a {
 
 	text-decoration : none;
-	margin-left : 15%;
-	margin-right : 15%;
 	font-size : 20px;
 	color : black;
 
