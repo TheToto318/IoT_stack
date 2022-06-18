@@ -113,6 +113,9 @@ eg: docker logs -f logs db
 ![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
 
 ### Specs 
+
+![Web management page](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Dynamic%20website%20(management%20page).png)
+
 Adaptative dashboard including : 
 - New panel for each buildings
 - Filter by :
