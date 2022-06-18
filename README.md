@@ -112,9 +112,7 @@ eg: docker logs -f logs db
 
 ![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
 
-### Specs 
-
-![Web management page](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Dynamic%20website%20(management%20page).png)
+### Specs
 
 Adaptative dashboard including : 
 - New panel for each buildings
@@ -125,9 +123,13 @@ Adaptative dashboard including :
   - Room
 - Direct, Min, Max and Average values of all sensors type.
 - Graphs for all sensors type.
+
 ## Dynamic website 
 
-## Specs
+![Web management page](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Dynamic%20website%20(management%20page).png)
+
+### Specs
+
 - Overview of the last metrics for all users.
 - Manager credentials, only able to see their associated building.
 - Administrator user with following rights :
