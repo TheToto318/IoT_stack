@@ -129,6 +129,22 @@ body {
 
 }
 
+.form2 .submit2 {
+
+	position : relative;
+	top : 70px;
+	text-align : center;
+
+}
+
+.form2 .form-text2 {
+
+	font-size: 20px;
+	color : white;
+	text-align: center;
+
+}
+
 .form .ele1 {
 
 	position : relative;
@@ -174,6 +190,68 @@ body {
 
 	position : relative;
 	top : 150px;
+	text-align : center;
+
+}
+
+.form3 {
+
+	margin : 0 auto;
+	margin-top : 40px;
+	width : 300px;
+	height : 380px;
+	background-color : #0050A1;
+	border-radius: 3px;
+	padding : 10px;
+
+}
+
+.form3 a {
+
+	color : white;
+
+}
+
+.form3 .ele1 {
+
+	position : relative;
+	top : 10px;
+	text-align : center;
+	font-size : 20px;
+
+}
+
+.form3 .ele2 {
+
+	position : relative;
+	top : 40px;
+	text-align : center;
+	font-size : 20px;
+
+}
+
+.form3 .ele3 {
+
+	position : relative;
+	top : 70px;
+	text-align : center;
+	font-size : 20px;
+
+}
+
+.form3 .ele4 {
+
+	position : relative;
+	top : 100px;
+	text-align : center;
+	font-size : 20px;
+
+}
+
+.form3 .submit {
+
+	position : relative;
+	top : 130px;
 	text-align : center;
 
 }
