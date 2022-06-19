@@ -9,9 +9,9 @@
 
 		echo("Login in<br /><br />");
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
-		$id = "SELECT login, mdp FROM Administration";
+		$id = "SELECT login, mdp FROM administration";
 		$qry = mysqli_query($db, $id);
 
 		$login = mysqli_real_escape_string($db,htmlspecialchars($_POST['login']));

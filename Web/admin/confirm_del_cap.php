@@ -26,17 +26,16 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         echo("<div class='confirm'>Sensor and associated values deleted</div>");
 
 	?>
 
-    <div class="form2">
+  <div class="form2">
     	<div class="ele1"><a href="del_bat.php">Delete a building</a></div>
-        <div class="ele2"><a href="del_cap.php">Delete an other sensor</a></div>
-        <div class="ele3"><a href="./">Back to admin page</a></div>
-    </div>
-
+      <div class="ele2"><a href="del_cap.php">Delete an other sensor</a></div>
+      <div class="ele3"><a href="./">Back to admin page</a></div>
+  </div>
 </body>
 </html>

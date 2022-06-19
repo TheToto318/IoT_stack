@@ -14,7 +14,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         $nom = mysqli_real_escape_string($db, htmlspecialchars($_POST["nom"]));
         $login = mysqli_real_escape_string($db, htmlspecialchars($_POST["login"]));

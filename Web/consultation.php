@@ -17,12 +17,11 @@
             <li><a href="mentions_legales.php">Terms of service</a></li>
         </ul>
     </nav>
-
+  
     <div class="info">Last value of each room :</div>
 
 	<?php
-
-		include ("gestion/mysql.php");
+		    include ("mysql.php");
 
         $reqBat = "SELECT id, nom FROM batiment";
         $resBat = mysqli_query($db, $reqBat);

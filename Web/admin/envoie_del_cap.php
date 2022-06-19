@@ -14,7 +14,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php"); 
+        include ("../mysql.php"); 
 
         $capteur = mysqli_real_escape_string($db, htmlspecialchars($_POST['capteur']));
 

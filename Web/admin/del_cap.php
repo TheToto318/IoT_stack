@@ -39,7 +39,7 @@
             }
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         $requete = "SELECT id, nom FROM batiment";
         $result = mysqli_query($db, $requete);

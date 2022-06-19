@@ -26,7 +26,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         if(isset($_GET['erreur']))
         {
@@ -61,7 +61,6 @@
         echo('</select></div>');
 
     ?>
-
         <div class="ele2"><div class="text-form">Floor : </div>
         <input type="text" name="etage" placeholder="Ex : 1"></div>
         <div class="ele3"><div class="text-form">Room : </div>
@@ -69,7 +68,6 @@
         <div class="ele4"><div class="text-form">Sensor type : </div>
         <input type="text" name="type" placeholder="Ex : temperature"></div>
         <div class="submit"><input type="submit" value="Add sensor">
-
     </form>
 </div>
 

@@ -71,6 +71,19 @@ docker compose -p "IoT_Stack" up -d
   - Database : sae23
   - User : sae23
   - Password : sae23pass
+- Dynamic website :
+   - Administrator :
+      - User : Admin
+      - Pass : 4d?m17nisTt?r4!a0n
+   - Manager 1 :
+      - User : Gestio-1
+      - Password : C0u5r?sc745e!
+   - Manager 2 :
+      - User : Gestio-2
+      - Password : 4dm1nn?srt!0n
+   - Manager 3 :
+      - User : Gestio-3
+      - Password : G7iM5n14s?ti!
 
 ## Usage
 Services are accessible by the following ports :
@@ -99,7 +112,8 @@ eg: docker logs -f logs db
 
 ![Grafana dashboard](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Grafana.png)
 
-### Specs 
+### Specs
+
 Adaptative dashboard including : 
 - New panel for each buildings
 - Filter by :
@@ -108,11 +122,27 @@ Adaptative dashboard including :
   - Floor
   - Room
 - Direct, Min, Max and Average values of all sensors type.
-- Graphs for all sensors type. 
+- Graphs for all sensors type.
 
 ## Dynamic website 
 
-Coming soon 
+![Web management page](https://github.com/TheToto318/IoT_stack/blob/main/Screenshots/Dynamic%20website%20(management%20page).png)
+
+### Specs
+
+- Overview of the last metrics for all users.
+- Manager credentials, only able to see their associated building.
+- Administrator user with following rights :
+  - Add/delete building with associated manager credentials.
+  - Add/delete sensors. 
+
+- Manager page inlude :
+  - Tables with metrics history.
+  - Line graph for all type of values.
+  - Statistics including average, minimum and maximum. 
+
+- Other functionalities :
+  - Admin and manager session to stay connected after login.
 
 ## Flow NodeRED
 

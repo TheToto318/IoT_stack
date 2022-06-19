@@ -30,19 +30,19 @@
 
 		echo('<div class="session">' . $_SESSION['name_gestion'] . '</div>');
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
 //--------------------------------------------------------------------------------------------------------------------//
 
 		$user = $_SESSION['name_gestion'];
 
-		$bat = "SELECT id, nom FROM Batiment WHERE login = '$user'";
+		$bat = "SELECT id, nom FROM batiment WHERE login = '$user'";
 		$result = mysqli_query($db, $bat);
 		$numBat = mysqli_fetch_assoc($result);
 		$bat = $numBat["id"];
 		$nomBat = $numBat["nom"];
 
-		$etage = "SELECT DISTINCT etage FROM capteur LEFT JOIN Batiment ON Capteur.batiment = Batiment.id WHERE Batiment.id = '$bat' ORDER BY etage";
+		$etage = "SELECT DISTINCT etage FROM capteur LEFT JOIN batiment ON capteur.batiment = batiment.id WHERE batiment.id = '$bat' ORDER BY etage";
 		$result_etage = mysqli_query($db, $etage);
 
 		echo('<div class="nomBat">' . "Building $nomBat" . '</div>');
@@ -52,7 +52,7 @@
 		<nav>
 			<ul>
 				<li><a href="../">Home</a></li>
-				<li><a href="deconnexion_gestion.php">Logoff</a></li>
+				<li><a href="deconnexion_gestion.php">Sign out</a></li>
 			</ul>
 		</nav>
 
@@ -82,7 +82,7 @@
 				$eta = $numEtage["etage"];
 
 				echo('<div class="etage">' . "Floor $eta" . '</div>');
-				$salle = "SELECT DISTINCT salle FROM Capteur WHERE Capteur.etage = '$eta' AND Capteur.batiment = '$bat'"; 
+				$salle = "SELECT DISTINCT salle FROM capteur WHERE capteur.etage = '$eta' AND capteur.batiment = '$bat'"; 
 				$result_salle = mysqli_query($db, $salle);
 
 				for($b = 0; $b < mysqli_num_rows($result_salle); $b++)
@@ -91,16 +91,17 @@
 					$sal = $numSalle["salle"];
 
 					echo('<div class="salle">' . "$sal" . '</div>');
-					$capteur = "SELECT Capteur.id, Capteur.type FROM Capteur WHERE Capteur.salle = '$sal' AND Capteur.etage = '$eta' AND Capteur.batiment = '$bat'";
+					$capteur = "SELECT capteur.id, capteur.type FROM capteur WHERE capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat'";
 					$result_capteur = mysqli_query($db, $capteur);
 
 					for($c = 0; $c < mysqli_num_rows($result_capteur); $c++)
 					{
-						$typeCapteur = mysqli_fetch_assoc($result_capteur);
-						$cap = $typeCapteur["type"];
-						$capId = $typeCapteur["id"];
+						$typecapteur = mysqli_fetch_assoc($result_capteur);
+						$cap = $typecapteur["type"];
+						$capId = $typecapteur["id"];
 
 						echo('<div class="capteur">' . "$cap" . '</div>');
+            
 						$mesure = "SELECT date, heure, valeur FROM Mesure LEFT JOIN Valeur ON Valeur.id_mesure = Mesure.id LEFT JOIN Capteur ON Valeur.id_capteur = Capteur.id WHERE Capteur.id = '$capId' AND Capteur.salle = '$sal' AND Capteur.etage = '$eta' AND Capteur.batiment = '$bat' ORDER BY mesure.date DESC, mesure.heure DESC";
 						$result_mesure = mysqli_query($db, $mesure);
 
@@ -119,14 +120,14 @@
 
 							echo('<div class="box"><div class="tab"><table>');
 
-							echo("<tr><th>Date</th><th>Time</th><th>valeur</th></tr>");
+							echo("<tr><th>Date</th><th>Time</th><th>Value</th></tr>");
 
 							for ($d = 0; $d < mysqli_num_rows($result_mesure); $d++)
 							{
-								$valMesure = mysqli_fetch_assoc($result_mesure);
-								$mesDate = $valMesure["date"];
-								$mesHeure = $valMesure["heure"];
-								$mesVal = $valMesure["valeur"];
+								$valmesure = mysqli_fetch_assoc($result_mesure);
+								$mesDate = $valmesure["date"];
+								$mesHeure = $valmesure["heure"];
+								$mesVal = $valmesure["valeur"];
 
 								if($min == 0){$min = $mesVal;}
 
@@ -165,7 +166,7 @@
 									$min = $mesVal;
 								}
 							}
-
+              
 							$dataPoints = array_reverse($dataPoints);
 							$dataHours = array_reverse($dataHours);
 
@@ -181,7 +182,7 @@
 								$unite = " ppm";
 							}
 
-							echo("<div class='mesures'><b>Mesures : </b><br />");
+							echo("<div class='mesures'><b>Statistics : </b><br />");
 							echo("<br />Average : " . round($moyenne, 2) . $unite);
 							echo("<br />Maximum : " . $max . $unite);
 							echo("<br />Minimum : " . $min . $unite . "</div>");

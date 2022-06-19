@@ -26,7 +26,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php"); 
+        include ("../mysql.php"); 
 
         $bat = mysqli_real_escape_string($db, htmlspecialchars($_POST['batiment']));
 

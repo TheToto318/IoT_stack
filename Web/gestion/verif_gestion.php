@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion</title>
+	<title>Login</title>
 </head>
 <body>
 
@@ -9,12 +9,12 @@
 
 		echo("Login...<br /><br />");
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
 		$login = mysqli_real_escape_string($db,htmlspecialchars($_POST['login']));
     	$password = mysqli_real_escape_string($db,htmlspecialchars($_POST['password']));
 
-		$id = "SELECT login, mdp FROM Batiment WHERE login='$login'";
+		$id = "SELECT login, mdp FROM batiment WHERE login='$login'";
 		$qry = mysqli_query($db, $id);
 
 		if (mysqli_num_rows($qry) > 0)

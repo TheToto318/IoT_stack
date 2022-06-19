@@ -31,7 +31,7 @@
 			header('Location: login_admin.php');
 		}
 
-		include ("mysql.php");
+		include ("../mysql.php");
 
 	?>
 

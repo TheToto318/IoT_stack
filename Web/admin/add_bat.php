@@ -26,7 +26,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         if(isset($_GET['erreur']))
         {
@@ -37,7 +37,7 @@
             }
             if($err == 2)
             {
-                echo("<div class='erreur'>Please use fallowing pattern for login : 'Gestio-X' (X : Manager ID)</div>");
+                echo("<div class='erreur'>Please use following pattern for login : 'Gestio-X' (X : Manager ID)</div>");
             }
             if($err == 3)
             {
@@ -50,7 +50,7 @@
         }
 
     ?>
-
+  
     <div class="form">
         <form action="envoie_add_bat.php" method="POST">
             <div class="ele1"><input type="text" name="nom" placeholder="RT"></div>
@@ -59,7 +59,5 @@
             <div class="submit"><input type="submit" value="Add building"></div>
         </form>
     </div>
-
-
 </body>
 </html>

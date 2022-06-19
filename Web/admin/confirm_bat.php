@@ -26,7 +26,7 @@
             header('Location: ../');
         }
 
-        include ("mysql.php");
+        include ("../mysql.php");
 
         echo("<div class='confirm'>Building as been created</div>");
 
