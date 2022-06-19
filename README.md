@@ -51,7 +51,7 @@ Images are stored in our Docker Hub repository : https://hub.docker.com/r/totorx
 ```sh
 git clone https://github.com/TheToto318/IoT_stack.git
 cd IoT_stack
-docker compose -p up -d
+docker compose up -d
 ```
 
 ## Default credentials
