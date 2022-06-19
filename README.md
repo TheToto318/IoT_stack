@@ -47,11 +47,12 @@ Images are stored in our Docker Hub repository : https://hub.docker.com/r/totorx
 
 
 ## Install with docker-compose
+Follow this guide if you don't have docker-compose installed : https://docs.docker.com/compose/install/
 
 ```sh
 git clone https://github.com/TheToto318/IoT_stack.git
 cd IoT_stack
-docker compose up -d
+docker-compose up -d
 ```
 
 ## Default credentials
