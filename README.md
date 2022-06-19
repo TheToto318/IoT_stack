@@ -75,13 +75,13 @@ docker compose up -d
    - Administrator :
       - User : Admin
       - Pass : 4d?m17nisTt?r4!a0n
-   - Manager 1 :
+   - Manager 1 (RT building) :
       - User : Gestio-1
       - Password : C0u5r?sc745e!
-   - Manager 2 :
+   - Manager 2 (CS building) :
       - User : Gestio-2
       - Password : 4dm1nn?srt!0n
-   - Manager 3 :
+   - Manager 3 (GIM building) :
       - User : Gestio-3
       - Password : G7iM5n14s?ti!
 
