@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
 	<title>Terms of service</title>
 	<link rel="stylesheet" href="style/style.css">

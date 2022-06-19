@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
 	<title>Management login</title>
 	<link rel="stylesheet" href="../style/styleLogin.css">

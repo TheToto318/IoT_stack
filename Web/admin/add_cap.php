@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
     <title>Add sensors</title>
     <link rel="stylesheet" href="../style/styleAdmin.css">

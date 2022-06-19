@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
     <title>Overview</title>
     <link rel="stylesheet" href="style/styleConsul.css">

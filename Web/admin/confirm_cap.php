@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 	<title>Sensor added</title>
 	<link rel="stylesheet" href="../style/styleAdmin.css">
