@@ -1,0 +1,131 @@
+body {
+
+	font-family: Helvetica, sans-serif;
+	font-weight: 100;
+	background-color : #C0D5F0;
+
+}
+
+.erreur {
+
+	text-align : center;
+	font-size : 20px;
+	color : red;
+	margin-top : 40px;
+
+}
+
+.bandeau {
+
+	background-color : #0050A1;
+	font-size : 50px;
+	color : white;
+	font-weight: lighter;
+	text-align : center;
+	margin-bottom : 0px;
+	padding : 30px;
+}
+
+.connexion {
+	
+	margin : 0 auto;
+	margin-top : 40px;
+	width : 300px;
+	height : 270px;
+	background-color : #0050A1;
+	border-radius: 3px;
+	padding : 10px;
+
+}
+
+.login {
+
+	position : relative;
+	top : 30px;
+	text-align : center;
+	font-size : 20px;
+
+}
+
+.password {
+
+	position : relative;
+	top : 70px;
+	text-align : center;
+
+}
+
+.submit {
+
+	position : relative;
+	top : 110px;
+	text-align : center;
+
+}
+
+.login input {
+
+	width : 250px;
+	height : 40px;
+
+}
+
+.password input {
+
+	width : 250px;
+	height : 40px;
+	
+}
+
+.submit input {
+
+	width : 200px;
+	height : 30px;
+	
+}
+
+nav ul
+{
+
+	height : 50px;
+	list-style-type : none;
+  
+}
+
+nav ul li 
+{
+
+	display : inline;
+	text-align : center;
+	margin-left : 60px;
+	margin-right : 60px;
+	position : relative;
+	top : 45%;
+
+}
+
+nav {
+
+	position : sticky;
+	background-color : white;
+	top : 0px;
+	text-align : center;
+	border-bottom: 1px solid;
+	margin-bottom : 15px;
+	z-index : 2;
+
+}
+
+a {
+
+	text-decoration : none;
+	font-size : 20px;
+	color : black;
+
+}
+
+a:hover {
+
+	color : grey;
+
+}

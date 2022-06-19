@@ -1,0 +1,161 @@
+body {
+
+	font-family: Helvetica, sans-serif;
+	font-weight: 100;
+	background-color : #C0D5F0;
+
+}
+
+.bandeau {
+
+	background-color : #0050A1;
+	font-size : 50px;
+	color : white;
+	font-weight: lighter;
+	text-align : center;
+	margin-bottom : 0px;
+	padding : 30px;
+}
+
+.description {
+
+	font-size : 18px;
+	margin : 30px;
+	padding : 30px;
+	background-color : #B0C4E0;
+	filter : drop-shadow(0px 0px 20px #666666);
+
+}
+
+.gauche img {
+
+	position : relative;
+	width : 600px;
+	float : left;
+	margin-bottom : 10px;
+	margin-right : 20px;
+	filter : drop-shadow(0px 0px 20px #333333);
+
+}
+
+.gauche img:hover {
+
+	filter : drop-shadow(0px 0px 30px #333333);
+
+}
+
+.droite img {
+
+	position : relative;
+	width : 600px;
+	float : right;
+	margin-bottom : 10px;
+	margin-right : 20px;
+	filter : drop-shadow(0px 0px 20px #333333);
+
+}
+
+.droite img:hover {
+
+	filter : drop-shadow(0px 0px 30px #333333);
+
+}
+
+.w {
+
+	font-size : 30px;
+	display : inline;
+
+}
+
+.projet {
+
+	color : #0050A1;
+	font-weight : bold;
+	display : inline;
+
+}
+
+nav ul
+{
+
+	height : 50px;
+	list-style-type : none;
+  
+}
+
+nav ul li 
+{
+
+	display : inline;
+	text-align : center;
+	margin-left : 60px;
+	margin-right : 60px;
+	position : relative;
+	top : 45%;
+
+}
+
+nav {
+
+	position : sticky;
+	background-color : white;
+	top : 0px;
+	text-align : center;
+	border-bottom: 1px solid;
+	margin-bottom : 15px;
+	z-index : 2;
+
+}
+
+a {
+
+	text-decoration : none;
+	font-size : 20px;
+	color : black;
+
+}
+
+a:hover {
+
+	color : grey;
+
+}
+
+table {
+
+	width : 100%;
+
+}
+
+th {
+
+	background-color : #CCCCCC;
+
+}
+
+td {
+
+	background-color : #FFFFFF;
+
+}
+
+td:hover {
+
+	background-color : #EEEEEE;
+
+}
+
+th, td {
+
+	text-align: center;
+	padding: 15px;
+
+}
+
+table, th, td {
+
+  	border: 1px solid;
+  	border-collapse: collapse;
+
+}

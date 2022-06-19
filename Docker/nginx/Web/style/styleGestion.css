@@ -1,0 +1,178 @@
+body {
+
+	font-family: Helvetica, sans-serif;
+	font-weight: 100;
+	background-color : #C0D5F0;
+
+}
+
+.nomBat {
+
+	background-color : #0050A1;
+	font-size : 50px;
+	color : white;
+	font-weight: lighter;
+	text-align : center;
+	margin-bottom : 0px;
+	padding : 30px;
+}
+
+.etage {
+
+	background-color : #000033;
+	font-size : 40px;
+	color : white;
+	padding : 10px;
+	margin-bottom : 10px;
+
+}
+
+.salle {
+
+	background-color : #0050A1;
+	font-size : 20px;
+	color : white;
+	padding : 10px;
+	margin-top : 10px;
+	margin-bottom : 10px;
+
+}
+
+.capteur {
+
+	background-color : #0078F0;
+	font-size : 20px;
+	color : white;
+	padding : 10px;
+	margin-left : 20px;
+	margin-top : 10px;
+	margin-bottom : 10px;
+
+}
+
+.session {
+
+	position : absolute;
+	right : 10px;
+	padding : 10px;
+	color : white;
+
+}
+
+.box {
+
+	display : flex;
+	flex-wrap: wrap;
+	height : 500px;
+}
+
+.tab {
+
+	height : 100%;
+	width : 40%;
+	overflow: auto;
+	margin-left : 20px;
+	margin-right : 20px;
+}
+
+.mesures {
+
+	border: 1px solid;
+	padding : 10px;
+	margin-left : 20px;
+	width : 50%;
+	height : 20%;
+}
+
+.graph {
+
+	width : 55%;
+	max-width : 750px;
+	position : relative;
+	bottom : 75%;
+	left : 42%;
+
+}
+
+nav ul
+{
+
+	height : 50px;
+	list-style-type : none;
+  
+}
+
+nav ul li 
+{
+
+	display : inline;
+	position : relative;
+	top : 45%;
+
+}
+
+nav {
+
+	position : sticky;
+	background-color : white;
+	top : 0px;
+	text-align : center;
+	border-bottom: 1px solid;
+	margin-bottom : 15px;
+	z-index : 2;
+
+}
+
+a {
+
+	text-decoration : none;
+	margin-left : 15%;
+	margin-right : 15%;
+	font-size : 20px;
+	color : black;
+
+}
+
+a:hover {
+
+	color : grey;
+
+}
+
+table {
+
+	width : 100%;
+
+}
+
+th {
+
+	background-color : #CCCCCC;
+
+}
+
+td {
+
+	background-color : #FFFFFF;
+
+}
+
+td:hover {
+
+	background-color : #EEEEEE;
+
+}
+
+th, td {
+
+	text-align: center;
+	padding: 15px;
+
+}
+
+table, th, td {
+
+  	border: 1px solid;
+  	border-collapse: collapse;
+
+}
