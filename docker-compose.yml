@@ -29,6 +29,7 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=db
+      # - PMA_ABSOLUTE_URI=https://<your_domain>/phpmyadmin/
 
   influxdb:
     image: totorx/sae23:influxdb
@@ -43,6 +44,9 @@ services:
     restart: always
     ports:
       - 3000:3000
+    # environment:
+    #   - "GF_SERVER_ROOT_URL=https://<your_domain>/grafana"
+    #   - "GF_SERVER_DOMAIN=https://<your_domain>/"
 
   mqtt:
     image: totorx/sae23:mosquitto_broker
@@ -54,8 +58,8 @@ services:
     container_name: 'cron_sae23'
 
   web:
-    image: nginx_sae23
+    image: totorx/sae23:nginx
     container_name: nginx_sae23
     restart: always
     ports:
-      - 0933:8080
+      - 4443:8080
