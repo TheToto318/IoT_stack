@@ -102,7 +102,7 @@
 
 						echo('<div class="capteur">' . "$cap" . '</div>');
             
-						$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN Valeur ON Valeur.id_mesure = mesure.id LEFT JOIN capteur ON Valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' ORDER BY mesure.date DESC, mesure.heure DESC";
+						$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' ORDER BY mesure.date DESC, mesure.heure DESC";
 						$result_mesure = mysqli_query($db, $mesure);
 
 						if(mysqli_num_rows($result_mesure) > 0)
