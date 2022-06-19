@@ -47,7 +47,6 @@
 		<br />
 		<div class="logoff"><a href="deconnexion_admin.php">Logoff</a></div>
 	</div>
-
 </body>
 </html>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
 	<title>Admin page</title>
 	<link rel="stylesheet" href="../style/styleAdmin.css">
@@ -46,7 +47,6 @@
 		<br />
 		<div class="logoff"><a href="deconnexion_admin.php">Logoff</a></div>
 	</div>
-
 </body>
 </html>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="style/style.css">
@@ -51,7 +52,7 @@
 
 		Images are customized and uploaded into our Docker Hub repository : <a href="https://hub.docker.com/r/totorx/sae23"> https://hub.docker.com/r/totorx/sae23</a><br /><br />
 
-		The whole stack is hosted on Thomas's server to be reachable from internet with the "sae23.cloudroux.ovh" domain name.<br /><br /> 
+		The whole stack is hosted on Thomas' server to be reachable from internet with the "sae23.cloudroux.ovh" domain name.<br /><br /> 
 
 		For more information, take a look at our Github page : <a href="https://github.com/TheToto318/IoT_stack"> https://github.com/TheToto318/IoT_stack</a><br /><br />
 
@@ -70,4 +71,14 @@
     </div>
 
 </body>
+
+<footer>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="CSS Valide !" />
+    </a>
+	<a href="https://html5.validator.nu/?doc=https://sae23.cloudroux.ovh/">
+   		 <img src="media/html5-validator-badge-blue.svg" alt="HTML5 Valid" />
+	</a>
+</footer>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
     <title>Delete building</title>
 </head>

@@ -107,3 +107,10 @@ table, th, td {
   	border-collapse: collapse;
 
 }
+
+.footer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}

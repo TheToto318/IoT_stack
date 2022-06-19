@@ -49,6 +49,16 @@
 	</div>
 
 </body>
+
+<footer>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="CSS Valide !" />
+    </a>
+    <a href="https://html5.validator.nu/?doc=https://sae23.cloudroux.ovh/gestion/login_gestion.php">
+         <img src="../media/html5-validator-badge-blue.svg" alt="HTML5 Valid" />
+    </a>
+</footer>
 </html>
 
 
