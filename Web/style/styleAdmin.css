@@ -137,6 +137,19 @@ body {
 
 }
 
+.form2 .submit2 input {
+
+	width : 200px;
+	height : 30px;
+
+}
+
+.back {
+
+	text-align : center;
+
+}
+
 .form2 .form-text2 {
 
 	font-size: 20px;

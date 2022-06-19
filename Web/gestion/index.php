@@ -22,9 +22,10 @@
 		{
 			unset($_SESSION['name_admin']);
 		}
+
 		if(!isset($_SESSION['name_gestion']))
 		{
-			header('Location: ../');
+			header('Location: login_gestion.php');
 		}
 
 		echo('<div class="session">' . $_SESSION['name_gestion'] . '</div>');

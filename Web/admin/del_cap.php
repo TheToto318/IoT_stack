@@ -54,7 +54,6 @@
             $nomBat = $res["nom"];
             echo("<option value='$idBat'>" . $nomBat . "</options>");
         }
-        echo('</select>');
 
         echo('</select></div><div class="submit2"><input type="submit" value="Select building"></form></div></div>');
 
