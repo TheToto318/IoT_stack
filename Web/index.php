@@ -38,8 +38,8 @@
 
 		An other part of this project consists in processing these metrics with nodeRED associated with InfluxDB + Grafana for visualization.<br />
 		These services are accessible with the following URL :<br />
-		- nodeRED : https://sae23.cloudroux.ovh/nodered/<br />
-		- Grafana : https://sae23.cloudroux.ovh/grafana/<br /><br />
+		- nodeRED : <a href="https://sae23.cloudroux.ovh/nodered/"> https://sae23.cloudroux.ovh/nodered/</a><br />
+		- Grafana : <a href="https://sae23.cloudroux.ovh/grafana/"> https://sae23.cloudroux.ovh/grafana/</a><br /><br />
 
 		PHPMyAdmin, the database management interface used by this website is also accesible with this URL : https://sae23.cloudroux.ovh/phpmyadmin/<br /><br />
 
@@ -49,11 +49,11 @@
 
 		The complete workflow to recover and manage these metric is dockerized and can be run with only one command using docker-compose. <br /><br />
 
-		Images are customized and uploaded into our Docker Hub repository : https://hub.docker.com/r/totorx/sae23<br /><br />
+		Images are customized and uploaded into our Docker Hub repository : <a href="https://hub.docker.com/r/totorx/sae23"> https://hub.docker.com/r/totorx/sae23</a><br /><br />
 
 		The whole stack is hosted on Thomas's server to be reachable from internet with the "sae23.cloudroux.ovh" domain name.<br /><br /> 
 
-		For more information, take a look at our Github page : https://github.com/TheToto318/IoT_stack<br /><br />
+		For more information, take a look at our Github page : <a href="https://github.com/TheToto318/IoT_stack"> https://github.com/TheToto318/IoT_stack</a><br /><br />
 
 		Thanks to the different tabs above you will be able to : <br />
 		- Add/delete buildings to monitor with an associated manager account (only for administrator).<br />
