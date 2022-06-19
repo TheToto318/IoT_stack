@@ -41,8 +41,6 @@
 
     </div>
 
-</body>
-
 <footer>
     <a href="https://jigsaw.w3.org/css-validator/check/referer">
         <img src="https://jigsaw.w3.org/css-validator/images/vcss"
@@ -52,4 +50,5 @@
          <img src="media/html5-validator-badge-blue.svg" alt="HTML5 Valid" />
     </a>
 </footer>
+</body>
 </html>
