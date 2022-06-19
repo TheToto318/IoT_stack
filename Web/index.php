@@ -41,7 +41,7 @@
 		- nodeRED : <a href="https://sae23.cloudroux.ovh/nodered/"> https://sae23.cloudroux.ovh/nodered/</a><br />
 		- Grafana : <a href="https://sae23.cloudroux.ovh/grafana/"> https://sae23.cloudroux.ovh/grafana/</a><br /><br />
 
-		PHPMyAdmin, the database management interface used by this website is also accesible with this URL : https://sae23.cloudroux.ovh/phpmyadmin/<br /><br />
+		PHPMyAdmin, the database management interface used by this website is also accesible with this URL : <a href="https://sae23.cloudroux.ovh/phpmyadmin/"> https://sae23.cloudroux.ovh/phpmyadmin/</a><br /><br />
 
 		<div class="droite">
 			<a href="media/Grafana.png"><img src="media/Grafana.png" alt="Grafana"></a>
