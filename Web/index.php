@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<div class="bandeau">Home</div>
+	<div class="bandeau">Blagnac College IoT devices management page </div>
 	<nav>
         <ul>
             <li><a href="./">Home</a></li>
