@@ -2,8 +2,20 @@
 <html>
 <head>
     <title>Add sensors</title>
+    <link rel="stylesheet" href="../style/styleAdmin.css">
 </head>
 <body>
+
+    <div class="bandeau">Add sensor</div>
+    <nav>
+        <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="login_admin.php">Admin</a></li>
+            <li><a href="../gestion/login_gestion.php">Management</a></li>
+            <li><a href="../consultation.php">Overview</a></li>
+            <li><a href="../mentions_legales.php">Terms of service</a></li>
+        </ul>
+    </nav>
 
     <?php
 
@@ -36,7 +48,7 @@
         $bat = "SELECT id, nom FROM batiment";
         $result = mysqli_query($db, $bat);
 
-        echo("Sensor's building : ");
+        echo("<div class='form3' style='color : white'><div class='ele1'>Sensor's building : ");
         echo('<form action="envoie_add_cap.php" method="POST"><select name="batiment"><option value="">...</option>');
 
         for($i = 0; $i < mysqli_num_rows($result); $i++){
@@ -46,28 +58,18 @@
             echo("<option value='$idBat'>" . $nomBat . "</options>");
         }
 
-        echo('</select><br /><br />');
+        echo('</select></div>');
 
     ?>
-
-        <div class="text-form">Étage : </div>
-        <input type="text" name="etage" placeholder="Ex : 1">
-        <br />
-        <br />
-        <div class="text-form">Salle : </div>
-        <input type="text" name="salle" placeholder="Ex : E104">
-        <br />
-        <br />
-        <div class="text-form">Sensor type : </div>
-        <input type="text" name="type" placeholder="Ex : temperature">
-        <input type="hidden" name="nomBat" value='<?php echo($nomBat);?>'>
-        <br />
-        <br />
-        <input type="submit" value="Add sensor">
+        <div class="ele2"><div class="text-form">Floor : </div>
+        <input type="text" name="etage" placeholder="Ex : 1"></div>
+        <div class="ele3"><div class="text-form">Room : </div>
+        <input type="text" name="salle" placeholder="Ex : E104"></div>
+        <div class="ele4"><div class="text-form">Sensor type : </div>
+        <input type="text" name="type" placeholder="Ex : temperature"></div>
+        <div class="submit"><input type="submit" value="Add sensor">
     </form>
-
-    <br />
-    <a href="./">Back</a>
+</div>
 
 </body>
 </html>

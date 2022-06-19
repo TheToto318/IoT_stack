@@ -2,20 +2,33 @@
 <html>
 <head>
 	<title>Admin login</title>
+	<link rel="stylesheet" href="../style/styleLogin.css">
 </head>
 <body>
 
-	<?php
+	<div class="bandeau">Admin login</div>
+	<nav>
+        <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="login_admin.php">Admin</a></li>
+            <li><a href="../gestion/login_gestion.php">Management</a></li>
+            <li><a href="../consultation.php">Overview</a></li>
+            <li><a href="../mentions_legales.php">Terms of service</a></li>
+        </ul>
+    </nav>
 
-		echo("Please use your credentials to login to the admin page");
+	<?php
 
 		session_start();
 
+
+
 		if(isset($_SESSION['name_admin']))
 		{
-			if($_SESSION['name_admin'] == 'Admin')
+			if($_SESSION['name_admin'] == "Admin")
 			{
-				header('Location: ./');
+				header("Location: ./");
+				exit;
 			}
 		}
 
@@ -24,20 +37,34 @@
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Incorrect user or password</div>");
+                echo("<div class='erreur'>Wrong login or password</div>");
             }
         }
 
 	?>
 
-	<form action="verif_admin.php" method="POST">
-		<input type="text" name="login" placeholder="login">	
-		<input type="password" name="password" placeholder="password">
-		<input type ="submit" name="submit" value="Login">
-		<br />
-		<br />
-		<a href="../index.php">Home</a>
-	</form>
+	<div class="connexion">
+		<form action="verif_admin.php" method="POST">
+			<div class="login"><input type="text" name="login" placeholder="Login"></div>
+			<div class="password"><input type="password" name="password" placeholder="Password"></div>
+			<div class="submit"><input type="submit" name="submit" value="Log in"></div>
+		</form>
+	</div>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

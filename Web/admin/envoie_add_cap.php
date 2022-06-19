@@ -17,14 +17,16 @@
         include ("../mysql.php");
 
         $batiment = mysqli_real_escape_string($db, htmlspecialchars($_POST["batiment"]));
-        $nomBat = mysqli_real_escape_string($db, htmlspecialchars($_POST["nomBat"]));
         $etage = mysqli_real_escape_string($db, htmlspecialchars($_POST["etage"]));
         $salle = mysqli_real_escape_string($db, htmlspecialchars($_POST["salle"]));
         $type = strtolower(mysqli_real_escape_string($db, htmlspecialchars($_POST["type"])));
 
         $verif = "SELECT salle, etage, type, batiment FROM capteur";
         $resultVerif = mysqli_query($db, $verif);
-
+        $reqBat = "SELECT nom FROM batiment WHERE id = '$batiment'";
+        $resultBat = mysqli_query($db, $reqBat);
+        $listBat = mysqli_fetch_assoc($resultBat);
+        $nomBat = $listBat["nom"];
 
         for($i = 0; $i < mysqli_num_rows($resultVerif); $i++){
             $row = mysqli_fetch_assoc($resultVerif);
