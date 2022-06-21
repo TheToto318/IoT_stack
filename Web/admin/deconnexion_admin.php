@@ -8,8 +8,8 @@
 	<?php
 
 		session_start();
-		unset($_SESSION['name_admin']);
-		session_destroy();
+		unset($_SESSION['name_admin']); 			//deleting from $_SESSION the admin username
+		session_destroy();							//destroying the session
 		header('Location: ../');
 
 	?>

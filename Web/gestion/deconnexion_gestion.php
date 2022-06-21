@@ -8,7 +8,7 @@
 	<?php
 
 		session_start();
-		unset($_SESSION['name_gestion']);
+		unset($_SESSION['name_gestion']);		//deleting the manager's session so that (s)he's not connected anymore
 		session_destroy();
 		header('Location: ../');
 

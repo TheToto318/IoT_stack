@@ -17,7 +17,7 @@
         </ul>
     </nav>
 
-    <div class="description">
+    <div class="description">           <!-- Terms of service -->
     	
     	<h1>Disclaimer for IoT_Stack</h1>
 

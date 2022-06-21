@@ -17,7 +17,7 @@
         </ul>
     </nav>
 
-    <div class="description">
+    <div class="description">					<!-- a little description of our super project -->
     	
     	<div class="w">W</div>elcome to the <div class="projet">IoT_Stack</div> dynamic website, this webpage is a part of the SAE23 project initiated by the Blagnac college and made by four students :<br />
 		- Roques Clément (Frontend developer)<br />
@@ -30,6 +30,7 @@
 		- Sensors of various types : temperature, co2 and luminosity<br /><br />
 
 		<div class ="gauche"><a href="media/Vue_Concepteur.png"><img src="media/Vue_Concepteur.png" alt="Conceptor view of the database."></a></div>
+<!-- 	some images -->
 
 		Metrics are recovered from an MQTT broker by a PHP script embedded into a docker container and sent to a MariaDB database. <br />
 		These metrics are generated every minute by a Bash script in a docker container before being sent to the MQTT broker.<br /><br />

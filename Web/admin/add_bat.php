@@ -21,14 +21,14 @@
 
         session_start();
 
-        if(!isset($_SESSION['name_admin']))
+        if(!isset($_SESSION['name_admin']))                 //testing if the admin is connected and redirecting to home if not
         {
             header('Location: ../');
         }
 
         include ("../mysql.php");
 
-        if(isset($_GET['erreur']))
+        if(isset($_GET['erreur']))                          //Showing errors if the submited informations are not valideted 
         {
             $err = $_GET['erreur'];
             if($err == 1)

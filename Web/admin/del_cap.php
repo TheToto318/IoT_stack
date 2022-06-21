@@ -21,12 +21,12 @@
 
         session_start();
 
-        if(!isset($_SESSION['name_admin']))
+        if(!isset($_SESSION['name_admin']))                     //testing if the admin is connected and redirecting to home if not
         {
             header('Location: ../');
         }
 
-        if(isset($_GET['erreur']))
+        if(isset($_GET['erreur']))                          //managing errors
         {
             $err = $_GET['erreur'];
             if($err == 1)
@@ -41,13 +41,13 @@
 
         include ("../mysql.php");
 
-        $requete = "SELECT id, nom FROM batiment";
+        $requete = "SELECT id, nom FROM batiment";                  //selecting the sensor's building you want to delete
         $result = mysqli_query($db, $requete);
 
         echo("<div class='form2'><div class='form-text2'>Select the building's sensor you want to delete : </div>");
         echo('<form action="del_cap_form.php" method="POST">');
 
-        echo('<div class="ele1"><select name="batiment"><option value="">...</option>');
+        echo('<div class="ele1"><select name="batiment"><option value="">...</option>'); //listing the buildings
         for($i = 0; $i < mysqli_num_rows($result); $i++){
             $res = mysqli_fetch_assoc($result);
             $idBat = $res["id"];
