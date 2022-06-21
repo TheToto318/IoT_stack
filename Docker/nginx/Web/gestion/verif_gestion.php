@@ -38,7 +38,7 @@
 			}
 
 			$_SESSION['name_gestion'] = $user;
-			header('Location: ./');
+			header('Location: ./select_gestion.php');
 		}
 		else
 		{

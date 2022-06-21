@@ -24,7 +24,7 @@
 		{
 			if(substr($_SESSION['name_gestion'], 0, 7) == 'Gestio-')
 			{
-				header("Location: ./");
+				header("Location: ./select_gestion.php");
 			}
 		}
 
