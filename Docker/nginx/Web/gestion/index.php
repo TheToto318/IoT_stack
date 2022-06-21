@@ -16,6 +16,7 @@
 
 	<?php
 
+		include ("../mysql.php");
 		session_start();
 	
 		if(isset($_SESSION['name_admin']))
@@ -28,9 +29,24 @@
 			header('Location: login_gestion.php');
 		}
 
-		echo('<div class="session">' . $_SESSION['name_gestion'] . '</div>');
+		if(isset($_POST['date1'])){
+			$date1 = mysqli_real_escape_string($db,htmlspecialchars($_POST['date1']));
+		}
+		if(isset($_POST['date2'])){
+			$date2 = mysqli_real_escape_string($db,htmlspecialchars($_POST['date2']));
+		}
+		if(isset($_POST['date3'])){
+			$date3 = mysqli_real_escape_string($db,htmlspecialchars($_POST['date3']));
+		}
+		if(isset($_POST['heure1'])){
+			$heure1 = mysqli_real_escape_string($db,htmlspecialchars($_POST['heure1']));
+		}
+		if(isset($_POST['heure2'])){
+			$heure2 = mysqli_real_escape_string($db,htmlspecialchars($_POST['heure2']));
+		}
 
-		include ("../mysql.php");
+
+		echo('<div class="session">' . $_SESSION['name_gestion'] . '</div>');
 
 //--------------------------------------------------------------------------------------------------------------------//
 
@@ -44,6 +60,8 @@
 
 		$etage = "SELECT DISTINCT etage FROM capteur LEFT JOIN batiment ON capteur.batiment = batiment.id WHERE batiment.id = '$bat' ORDER BY etage";
 		$result_etage = mysqli_query($db, $etage);
+
+		
 
 		echo('<div class="nomBat">' . "Building $nomBat" . '</div>');
 
@@ -102,7 +120,17 @@
 
 						echo('<div class="capteur">' . "$cap" . '</div>');
             
-						$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' ORDER BY mesure.date DESC, mesure.heure DESC";
+						if(isset($date1) && isset($heure1) && isset($heure2)){
+							$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' AND date = '$date1' AND heure BETWEEN '$heure1' AND '$heure2' ORDER BY mesure.date DESC, mesure.heure DESC";
+						}
+						elseif(isset($date2) && isset($date3)){
+							$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' AND date BETWEEN '$date2' AND '$date3' ORDER BY mesure.date DESC, mesure.heure DESC";
+						}
+						else
+						{
+							$mesure = "SELECT date, heure, valeur FROM mesure LEFT JOIN valeur ON valeur.id_mesure = mesure.id LEFT JOIN capteur ON valeur.id_capteur = capteur.id WHERE capteur.id = '$capId' AND capteur.salle = '$sal' AND capteur.etage = '$eta' AND capteur.batiment = '$bat' ORDER BY mesure.date DESC, mesure.heure DESC";
+						}
+						
 						$result_mesure = mysqli_query($db, $mesure);
 
 						if(mysqli_num_rows($result_mesure) > 0)
@@ -132,10 +160,10 @@
 								if($min == 0){$min = $mesVal;}
 
 								if($cap == "temperature"){
-									echo("<tr><td>$mesDate</td><td>$mesHeure</td><td>$mesVal °C</td></tr>");	
+									echo("<tr><td>$mesDate</td><td>$mesHeure</td><td>$mesVal °C</td></tr>");
 								}
 								if($cap == "co2"){
-									echo("<tr><td>$mesDate</td><td>$mesHeure</td><td>$mesVal ppm</td></tr>");	
+									echo("<tr><td>$mesDate</td><td>$mesHeure</td><td>$mesVal ppm</td></tr>");
 								}
 
 								
