@@ -21,14 +21,14 @@
 
 	session_start();
 
-        if(!isset($_SESSION['name_admin']))
+        if(!isset($_SESSION['name_admin']))                 //testing if the admin is connected and redirecting to home if not
         {
             header('Location: ../');
         }
 
         include ("../mysql.php");
 
-        echo("<div class='confirm'>Sensor has been created</div>");
+        echo("<div class='confirm'>Sensor has been created</div>"); //confirmation message
 
 	?>
 

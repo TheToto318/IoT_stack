@@ -21,30 +21,30 @@
 
         session_start();
 
-        if(!isset($_SESSION['name_admin']))
+        if(!isset($_SESSION['name_admin']))                 //testing if the admin is connected and redirecting to home if not
         {
             header('Location: ../');
         }
 
         include ("../mysql.php"); 
 
-        $bat = mysqli_real_escape_string($db, htmlspecialchars($_POST['batiment']));
+        $bat = mysqli_real_escape_string($db, htmlspecialchars($_POST['batiment']));    //getting the building where the sensor you want to delete is from the previous page
 
         if($bat == ""){
-            header("Location: del_cap.php?erreur=2");
+            header("Location: del_cap.php?erreur=2");                           //managing errors : if no building was selected
             exit;
         }
 
         if(isset($_GET['erreur']))
         {
-            $err = $_GET['erreur'];
+            $err = $_GET['erreur'];                                             //managing errors
             if($err == 1)
             {
                 echo("<div class='erreur'>Select a sensor</div>");
             }
         }
 
-        $requete = "SELECT id, salle, etage, type FROM capteur WHERE batiment ='$bat'";
+        $requete = "SELECT id, salle, etage, type FROM capteur WHERE batiment ='$bat'";     //selecting the sensors from the previously chosen building
         $result = mysqli_query($db, $requete);
 
         echo("<div class='form2'><div class='form-text2'>Select a sensor to delete : </div>");
@@ -60,7 +60,7 @@
             echo("<option value='$idCap'>floor " . $etageCap . ", room " . $salleCap . ", type " . $typeCap . "</options>");
         }
 
-        echo('</select></div><div class="submit2"><input type="submit" value="Delete sensor"></form></div></div>');
+        echo('</select></div><div class="submit2"><input type="submit" value="Delete sensor"></form></div></div>'); //sending inforamtions to the next page
 
     ?>
 

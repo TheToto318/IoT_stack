@@ -22,7 +22,7 @@
 
 		if(isset($_SESSION['name_gestion']))
 		{
-			if(substr($_SESSION['name_gestion'], 0, 7) == 'Gestio-')
+			if(substr($_SESSION['name_gestion'], 0, 7) == 'Gestio-')                 //if a manager is already connected, (s)he's redirected to the time slot selection page
 			{
 				header("Location: ./select_gestion.php");
 			}
@@ -33,7 +33,7 @@
             $err = $_GET['erreur'];
             if($err == 1)
             {
-                echo("<div class='erreur'>Wrong login or password</div>");
+                echo("<div class='erreur'>Wrong login or password</div>");          //managing errors during logging
             }
         }
 
@@ -41,7 +41,7 @@
 
 	<div class="connexion">
 		<form action="verif_gestion.php" method="POST">
-			<div class="login"><input type="text" name="login" placeholder="Login"></div>
+			<div class="login"><input type="text" name="login" placeholder="Login"></div>    <!-- simple form : username, password, and submit button -->
 			<div class="password"><input type="password" name="password" placeholder="Password"></div>
 			<div class="submit"><input type="submit" name="submit" value="Log in"></div>
 		</form>

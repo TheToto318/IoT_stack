@@ -21,14 +21,14 @@
 
         session_start();
 
-        if(!isset($_SESSION['name_admin']))
+        if(!isset($_SESSION['name_admin']))                     //testing if the admin is connected and redirecting to home if not
         {
             header('Location: ../');
         }
 
         include ("../mysql.php");
 
-        if(isset($_GET['erreur']))
+        if(isset($_GET['erreur']))                              //Showing errors if the submited informations are not validated 
         {
             $err = $_GET['erreur'];
             if($err == 1)
@@ -45,7 +45,7 @@
             }
         }
 
-        $bat = "SELECT id, nom FROM batiment";
+        $bat = "SELECT id, nom FROM batiment";                  //Selecting all the buildings available
         $result = mysqli_query($db, $bat);
 
         echo("<div class='form3' style='color : white'><div class='ele1'>Sensor's building : ");
@@ -55,7 +55,7 @@
             $resBat = mysqli_fetch_assoc($result);
             $idBat = $resBat["id"];
             $nomBat = $resBat["nom"];
-            echo("<option value='$idBat'>" . $nomBat . "</options>");
+            echo("<option value='$idBat'>" . $nomBat . "</options>"); //creating the list of the building to select the one you want the sensor to be deleted in
         }
 
         echo('</select></div>');

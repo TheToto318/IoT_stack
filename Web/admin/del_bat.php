@@ -21,7 +21,7 @@
 
         session_start();
 
-        if(!isset($_SESSION['name_admin']))
+        if(!isset($_SESSION['name_admin']))                 //testing if the admin is connected and redirecting to home if not
         {
             header('Location: ../');
         }
@@ -30,7 +30,7 @@
 
         if(isset($_GET['erreur']))
         {
-            $err = $_GET['erreur'];
+            $err = $_GET['erreur'];                         
             if($err == 1)
             {
                 echo("<div class='erreur'>An error has occurred, please try again</div>");
@@ -38,7 +38,7 @@
 
         }
 
-        $bat = "SELECT id, nom FROM batiment";
+        $bat = "SELECT id, nom FROM batiment";          //selecting all the buildings
         $result = mysqli_query($db, $bat);
 
         echo("<div class='form2'><div class='form-text2'>Select the building you want to delete : </div>");

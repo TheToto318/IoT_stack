@@ -21,14 +21,14 @@
 
         session_start();
 
-        if(!isset($_SESSION['name_gestion']))
+        if(!isset($_SESSION['name_gestion']))                   //checking if a manager is connected
         {
             header('Location: ../');
         }
 
         include ("../mysql.php");
 
-        if(isset($_GET['erreur']))
+        if(isset($_GET['erreur']))                              //managing errors
         {
             $err = $_GET['erreur'];
             if($err == 1)
@@ -46,6 +46,10 @@
         }
 
     ?>
+
+    <!-- Three forms are created here :  - One that lets you select data from a specific day and between 2 chosen hours
+                                    - One that lets you select data between 2 chosen days
+                                    - One that selects all the values of a buidling -->
 
     <div class='form' style='color : white'>
         <form action="index.php" method="POST">

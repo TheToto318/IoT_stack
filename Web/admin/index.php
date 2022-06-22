@@ -23,12 +23,12 @@
 
 		if(isset($_SESSION['name_gestion']))
 		{
-			unset($_SESSION['name_gestion']);
+			unset($_SESSION['name_gestion']);			//if a manager is connected, his session is deleted so that a manager and a administrator cannot be connected at the same time.
 		}
 
 		if(!isset($_SESSION['name_admin']))
 		{
-			header('Location: login_admin.php');
+			header('Location: login_admin.php');	//if someone tries to access this page without being logged as an Admin, (s)he's redirected to the login page
 		}
 
 		include ("../mysql.php");
@@ -36,7 +36,7 @@
 	?>
 
 	<div class="select">
-		<div class="addBat"><a href="add_bat.php">Add a building</a></div>
+		<div class="addBat"><a href="add_bat.php">Add a building</a></div>			<!-- showing the different options for the admin -->
 		<br />
 		<div class="delBat"><a href="del_bat.php">Delete a building</a></div>
 		<br />

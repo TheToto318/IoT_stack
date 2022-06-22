@@ -21,11 +21,9 @@
 
 		session_start();
 
-
-
 		if(isset($_SESSION['name_admin']))
 		{
-			if($_SESSION['name_admin'] == "Admin")
+			if($_SESSION['name_admin'] == "Admin")       //if the admin is already connected, (s)he's redirected to the administration page
 			{
 				header("Location: ./");
 				exit;
@@ -34,7 +32,7 @@
 
         if(isset($_GET['erreur']))
         {
-            $err = $_GET['erreur'];
+            $err = $_GET['erreur'];                     //managing errors
             if($err == 1)
             {
                 echo("<div class='erreur'>Wrong login or password</div>");
@@ -52,7 +50,7 @@
 	</div>
 
 <footer>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">                <!-- CSS and HTML5 validators -->
         <img src="https://jigsaw.w3.org/css-validator/images/vcss"
             alt="CSS Valide !" />
     </a>
