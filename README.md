@@ -54,6 +54,12 @@ git clone https://github.com/TheToto318/IoT_stack.git
 cd IoT_stack
 docker-compose up -d
 ```
+## Uninstall with docker-compose 
+From the project root folder : 
+
+```sh
+docker-compose down
+```
 
 ## Default credentials
 - Grafana :
